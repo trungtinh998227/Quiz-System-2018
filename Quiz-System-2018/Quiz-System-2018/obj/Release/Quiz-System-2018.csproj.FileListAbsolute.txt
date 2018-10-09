@@ -1,0 +1,11 @@
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\bin\Release\Quiz-System-2018.exe.config
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\bin\Release\Quiz-System-2018.exe
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\bin\Release\Quiz-System-2018.pdb
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz-System-2018.csprojAssemblyReference.cache
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz_System_2018.Login_Form.resources
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz_System_2018.Properties.Resources.resources
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz_System_2018.Quiz_Form.resources
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz-System-2018.csproj.GenerateResource.cache
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz-System-2018.csproj.CoreCompileInputs.cache
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz-System-2018.exe
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz-System-2018.pdb

@@ -23,7 +23,8 @@ namespace Quiz_System_2018
         }
 
         private void bntLogin_Click(object sender, EventArgs e)
-        {
+        {   
+
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\trung\Documents\Quiz_Data.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter Sda = new SqlDataAdapter("select count(*) from LOGIN where USERNAME='"+txbLogin+"'and PASSWORD='"+txbPass+"'",conn);
 

@@ -16,5 +16,10 @@ namespace Quiz_System_2018
         {
             InitializeComponent();
         }
+
+        private void Quiz_config_student_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

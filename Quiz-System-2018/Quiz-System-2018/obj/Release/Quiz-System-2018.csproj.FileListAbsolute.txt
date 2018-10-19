@@ -10,3 +10,5 @@ C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Re
 C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz-System-2018.exe
 C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz-System-2018.pdb
 C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz_System_2018.Quiz_config_teacher.resources
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz_System_2018.Admin.resources
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz_System_2018.Quiz_config_student.resources

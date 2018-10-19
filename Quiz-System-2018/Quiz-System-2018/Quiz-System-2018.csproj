@@ -78,6 +78,9 @@
     <Compile Include="Quiz_Form.Designer.cs">
       <DependentUpon>Quiz_Form.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login_Form.resx">
       <DependentUpon>Login_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +93,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Quiz_config_student.resx">
+      <DependentUpon>Quiz_config_student.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Quiz_config_teacher.resx">
       <DependentUpon>Quiz_config_teacher.cs</DependentUpon>
     </EmbeddedResource>

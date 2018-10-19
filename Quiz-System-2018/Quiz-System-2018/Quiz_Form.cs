@@ -26,5 +26,10 @@ namespace Quiz_System_2018
         {
 
         }
+
+        private void Quiz_Form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

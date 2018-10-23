@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,13 +38,16 @@
             this.rdbC = new System.Windows.Forms.RadioButton();
             this.rdbB = new System.Windows.Forms.RadioButton();
             this.rdbA = new System.Windows.Forms.RadioButton();
-            this.txbQuestion = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -52,11 +56,10 @@
             this.groupBox1.Controls.Add(this.rdbC);
             this.groupBox1.Controls.Add(this.rdbB);
             this.groupBox1.Controls.Add(this.rdbA);
-            this.groupBox1.Controls.Add(this.txbQuestion);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(221, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(574, 443);
+            this.groupBox1.Size = new System.Drawing.Size(574, 386);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thi trắc nghiệm";
@@ -65,7 +68,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(84, 400);
+            this.label4.Location = new System.Drawing.Point(84, 341);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 15);
             this.label4.TabIndex = 5;
@@ -74,7 +77,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(84, 358);
+            this.label3.Location = new System.Drawing.Point(84, 299);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 15);
             this.label3.TabIndex = 5;
@@ -83,7 +86,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(84, 318);
+            this.label2.Location = new System.Drawing.Point(84, 259);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 5;
@@ -92,7 +95,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(84, 279);
+            this.label1.Location = new System.Drawing.Point(84, 220);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 15);
             this.label1.TabIndex = 5;
@@ -101,7 +104,7 @@
             // rdbD
             // 
             this.rdbD.AutoSize = true;
-            this.rdbD.Location = new System.Drawing.Point(44, 398);
+            this.rdbD.Location = new System.Drawing.Point(44, 339);
             this.rdbD.Name = "rdbD";
             this.rdbD.Size = new System.Drawing.Size(34, 19);
             this.rdbD.TabIndex = 4;
@@ -112,7 +115,7 @@
             // rdbC
             // 
             this.rdbC.AutoSize = true;
-            this.rdbC.Location = new System.Drawing.Point(44, 356);
+            this.rdbC.Location = new System.Drawing.Point(44, 297);
             this.rdbC.Name = "rdbC";
             this.rdbC.Size = new System.Drawing.Size(34, 19);
             this.rdbC.TabIndex = 3;
@@ -123,7 +126,7 @@
             // rdbB
             // 
             this.rdbB.AutoSize = true;
-            this.rdbB.Location = new System.Drawing.Point(44, 316);
+            this.rdbB.Location = new System.Drawing.Point(44, 257);
             this.rdbB.Name = "rdbB";
             this.rdbB.Size = new System.Drawing.Size(34, 19);
             this.rdbB.TabIndex = 2;
@@ -134,7 +137,7 @@
             // rdbA
             // 
             this.rdbA.AutoSize = true;
-            this.rdbA.Location = new System.Drawing.Point(44, 277);
+            this.rdbA.Location = new System.Drawing.Point(44, 218);
             this.rdbA.Name = "rdbA";
             this.rdbA.Size = new System.Drawing.Size(34, 19);
             this.rdbA.TabIndex = 1;
@@ -142,25 +145,31 @@
             this.rdbA.Text = "A";
             this.rdbA.UseVisualStyleBackColor = true;
             // 
-            // txbQuestion
+            // dataGridView1
             // 
-            this.txbQuestion.Location = new System.Drawing.Point(17, 21);
-            this.txbQuestion.Multiline = true;
-            this.txbQuestion.Name = "txbQuestion";
-            this.txbQuestion.Size = new System.Drawing.Size(544, 227);
-            this.txbQuestion.TabIndex = 0;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(10, 30);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(554, 150);
+            this.dataGridView1.TabIndex = 6;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 10000;
             // 
             // Quiz_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 467);
+            this.ClientSize = new System.Drawing.Size(811, 414);
             this.Controls.Add(this.groupBox1);
             this.Name = "Quiz_Form";
             this.Text = "Trả lời câu hỏi";
             this.Load += new System.EventHandler(this.Quiz_Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -168,7 +177,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txbQuestion;
         private System.Windows.Forms.RadioButton rdbD;
         private System.Windows.Forms.RadioButton rdbC;
         private System.Windows.Forms.RadioButton rdbB;
@@ -177,5 +185,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rdbA;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

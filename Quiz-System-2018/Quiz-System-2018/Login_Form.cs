@@ -5,7 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Text;
+using System.Text; 
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,7 +23,19 @@ namespace Quiz_System_2018
         }
 
         private void bntLogin_Click(object sender, EventArgs e)
-        {   
+        {
+            if (txbLogin.Text == "" && txbPass.Text == "")
+            {
+                MessageBox.Show("Vui lòng điền thông tin đăng nhập!", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (txbPass.Text=="")
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(txbLogin.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên đăng nhập!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\trung\Documents\Quiz_Data.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter Sda = new SqlDataAdapter("select count(*) from LOGIN where USERNAME='"+txbLogin+"'and PASSWORD='"+txbPass+"'",conn);

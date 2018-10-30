@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -38,10 +39,11 @@
             this.rdbC = new System.Windows.Forms.RadioButton();
             this.rdbB = new System.Windows.Forms.RadioButton();
             this.rdbA = new System.Windows.Forms.RadioButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.quiz_System_DBDataSet1 = new Quiz_System_2018.Quiz_System_DBDataSet();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quiz_System_DBDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -64,6 +66,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thi trắc nghiệm";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(10, 30);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(554, 150);
+            this.dataGridView1.TabIndex = 6;
             // 
             // label4
             // 
@@ -145,18 +155,16 @@
             this.rdbA.Text = "A";
             this.rdbA.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 30);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(554, 150);
-            this.dataGridView1.TabIndex = 6;
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 10000;
+            this.timer1.Tag = "";
+            // 
+            // quiz_System_DBDataSet1
+            // 
+            this.quiz_System_DBDataSet1.DataSetName = "Quiz_System_DBDataSet";
+            this.quiz_System_DBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Quiz_Form
             // 
@@ -170,6 +178,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quiz_System_DBDataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -186,6 +195,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rdbA;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Timer timer1;
+        private Quiz_System_DBDataSet quiz_System_DBDataSet1;
     }
 }

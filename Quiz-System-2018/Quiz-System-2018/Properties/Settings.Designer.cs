@@ -44,5 +44,16 @@ namespace Quiz_System_2018.Properties {
                 return ((string)(this["Data_Quiz"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\Quiz_System_D" +
+            "B.mdf;Integrated Security=True;Connect Timeout=30")]
+        public string Quiz_System_DBConnectionString {
+            get {
+                return ((string)(this["Quiz_System_DBConnectionString"]));
+            }
+        }
     }
 }

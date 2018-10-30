@@ -37,7 +37,7 @@ namespace Quiz_System_2018
                 MessageBox.Show("Vui lòng nhập tên đăng nhập!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\trung\Documents\Quiz_Data.mdf;Integrated Security=True;Connect Timeout=30");
+            SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\trung\Documents\Quiz_System_DB.mdf;Integrated Security=True;Connect Timeout=30");
             SqlDataAdapter Sda = new SqlDataAdapter("select count(*) from LOGIN where USERNAME='"+txbLogin+"'and PASSWORD='"+txbPass+"'",conn);
 
         }

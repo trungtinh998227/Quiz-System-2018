@@ -58,7 +58,6 @@
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Mã Môn:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -132,7 +131,6 @@
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thêm câu hỏi";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // textBox3
             // 
@@ -167,7 +165,6 @@
             this.label3.Size = new System.Drawing.Size(74, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Mã câu hỏi:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button3
             // 
@@ -195,7 +192,6 @@
             this.button4.TabIndex = 7;
             this.button4.Text = "Sửa";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // bntEdit
             // 
@@ -233,7 +229,6 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Quiz_config_teacher";
             this.Text = "Giảng viên";
-            this.Load += new System.EventHandler(this.Quiz_config_teacher_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -36,5 +36,10 @@ namespace Quiz_System_2018
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

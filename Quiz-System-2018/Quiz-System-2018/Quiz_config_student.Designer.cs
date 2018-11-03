@@ -42,8 +42,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -77,6 +77,7 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Name";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox2
             // 
@@ -168,6 +169,17 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.CausesValidation = false;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(256, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(433, 17);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Ứng dụng được phát triển bởi Nguyễn Trung Tính - Nguyễn Tuấn Huy";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -179,17 +191,6 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Copy right Đại học Tôn Đức Thắng";
             this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.CausesValidation = false;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
-            this.label7.Location = new System.Drawing.Point(256, 36);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(433, 17);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Ứng dụng được phát triển bởi Nguyễn Trung Tính - Nguyễn Tuấn Huy";
             // 
             // Quiz_config_student
             // 
@@ -210,7 +211,7 @@
             this.Controls.Add(this.linkLabel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Quiz_config_student";
-            this.Text = "Sinh viên";
+            this.Text = "Quiz_config_student";
             this.Load += new System.EventHandler(this.Quiz_config_student_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();

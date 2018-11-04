@@ -22,7 +22,7 @@ namespace Quiz_System_2018
         {
         }
 
-        private void bntLogin_Click(object sender, EventArgs e)
+        private void bntLogin_Click(object sender, EventArgs e) 
         {
             string checkUserNameAdmin = "Admin";
             string checkUserNameGV = "GV";
@@ -50,7 +50,7 @@ namespace Quiz_System_2018
                 SqlDataReader myReader;
                 myConn.Open();
                 myReader = SelectCommand.ExecuteReader();
-                int check = 0;
+                int check = 0; 
                 while (myReader.Read())
                 {
                     if (txbLogin.Text == checkUserNameAdmin)

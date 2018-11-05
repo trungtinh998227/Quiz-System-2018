@@ -33,9 +33,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txbLogin = new System.Windows.Forms.TextBox();
-            this.rbRemem = new System.Windows.Forms.RadioButton();
             this.bntLogin = new System.Windows.Forms.Button();
-            this.bntsign = new System.Windows.Forms.Button();
+            this.bntExit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txbPass = new System.Windows.Forms.TextBox();
@@ -82,25 +81,11 @@
             // 
             // txbLogin
             // 
+            this.txbLogin.AcceptsTab = true;
             this.txbLogin.Location = new System.Drawing.Point(275, 131);
             this.txbLogin.Name = "txbLogin";
             this.txbLogin.Size = new System.Drawing.Size(224, 23);
-            this.txbLogin.TabIndex = 4;
-            // 
-            // rbRemem
-            // 
-            this.rbRemem.AutoSize = true;
-            this.rbRemem.BackColor = System.Drawing.Color.Transparent;
-            this.rbRemem.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbRemem.ForeColor = System.Drawing.Color.Red;
-            this.rbRemem.Location = new System.Drawing.Point(275, 211);
-            this.rbRemem.Name = "rbRemem";
-            this.rbRemem.Size = new System.Drawing.Size(116, 21);
-            this.rbRemem.TabIndex = 6;
-            this.rbRemem.TabStop = true;
-            this.rbRemem.Text = "Nhớ Mật Khẩu";
-            this.rbRemem.UseVisualStyleBackColor = false;
-            this.rbRemem.CheckedChanged += new System.EventHandler(this.rbRemem_CheckedChanged);
+            this.txbLogin.TabIndex = 1;
             // 
             // bntLogin
             // 
@@ -108,20 +93,21 @@
             this.bntLogin.Location = new System.Drawing.Point(240, 250);
             this.bntLogin.Name = "bntLogin";
             this.bntLogin.Size = new System.Drawing.Size(108, 31);
-            this.bntLogin.TabIndex = 7;
+            this.bntLogin.TabIndex = 4;
             this.bntLogin.Text = "Đăng Nhập";
             this.bntLogin.UseVisualStyleBackColor = true;
             this.bntLogin.Click += new System.EventHandler(this.bntLogin_Click);
             // 
-            // bntsign
+            // bntExit
             // 
-            this.bntsign.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntsign.Location = new System.Drawing.Point(391, 250);
-            this.bntsign.Name = "bntsign";
-            this.bntsign.Size = new System.Drawing.Size(108, 31);
-            this.bntsign.TabIndex = 8;
-            this.bntsign.Text = "Quên Mật Khẩu";
-            this.bntsign.UseVisualStyleBackColor = true;
+            this.bntExit.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntExit.Location = new System.Drawing.Point(391, 250);
+            this.bntExit.Name = "bntExit";
+            this.bntExit.Size = new System.Drawing.Size(108, 31);
+            this.bntExit.TabIndex = 5;
+            this.bntExit.Text = "Thoát";
+            this.bntExit.UseVisualStyleBackColor = true;
+            this.bntExit.Click += new System.EventHandler(this.bntExit_Click);
             // 
             // pictureBox1
             // 
@@ -147,11 +133,12 @@
             // 
             // txbPass
             // 
+            this.txbPass.AcceptsTab = true;
             this.txbPass.Location = new System.Drawing.Point(275, 172);
             this.txbPass.Name = "txbPass";
             this.txbPass.PasswordChar = '*';
             this.txbPass.Size = new System.Drawing.Size(224, 23);
-            this.txbPass.TabIndex = 11;
+            this.txbPass.TabIndex = 2;
             // 
             // Login_Form
             // 
@@ -164,9 +151,8 @@
             this.Controls.Add(this.txbPass);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.bntsign);
+            this.Controls.Add(this.bntExit);
             this.Controls.Add(this.bntLogin);
-            this.Controls.Add(this.rbRemem);
             this.Controls.Add(this.txbLogin);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -174,6 +160,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Login_Form";
             this.Text = "Đăng nhập";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_Form_FormClosing);
             this.Load += new System.EventHandler(this.Login_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -188,9 +175,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txbLogin;
-        private System.Windows.Forms.RadioButton rbRemem;
         private System.Windows.Forms.Button bntLogin;
-        private System.Windows.Forms.Button bntsign;
+        private System.Windows.Forms.Button bntExit;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox txbPass;

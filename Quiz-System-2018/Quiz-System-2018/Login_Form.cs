@@ -18,10 +18,6 @@ namespace Quiz_System_2018
             InitializeComponent();
         }
 
-        private void rbRemem_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
         private void bntLogin_Click(object sender, EventArgs e) 
         {
             string checkUserNameAdmin = "Admin";
@@ -67,21 +63,23 @@ namespace Quiz_System_2018
 
                 if (check == 1)
                 {
-                    this.Hide();
                     Admin ad = new Admin();
-                    ad.Show();
+                    this.Hide();
+                    ad.ShowDialog();
+                    this.Show();
                 }
                 else if (check == 2)
                 {
                     this.Hide();
                     Quiz_config_teacher GV = new Quiz_config_teacher();
-                    GV.Show();
-                }
+                    GV.ShowDialog();
+                    this.Show();                }
                 else if (check == 3)
                 {
                     this.Hide();
                     Quiz_config_student SV = new Quiz_config_student();
-                    SV.Show();
+                    SV.ShowDialog();
+                    this.Show();
                 }
                 else 
                 {
@@ -97,6 +95,19 @@ namespace Quiz_System_2018
 
         private void Login_Form_Load(object sender, EventArgs e)
         {
+        }
+
+        private void bntExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        //thiết lập kiểu thoát ứng dụng
+        private void Login_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(MessageBox.Show("Bạn thật sự muốn thoát?","Thông Báo",MessageBoxButtons.OKCancel)!= System.Windows.Forms.DialogResult.OK)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

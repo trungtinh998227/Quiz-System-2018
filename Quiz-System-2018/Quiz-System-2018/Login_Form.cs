@@ -25,18 +25,7 @@ namespace Quiz_System_2018
             string checkUserNameSV = "SV";
 
             //Kiểm tra xem đã nhập đủ username vs pass chưa
-            if (txbLogin.Text == "" && txbPass.Text == "")
-            {
-                MessageBox.Show("Vui lòng điền thông tin đăng nhập!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (txbPass.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập mật khẩu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (txbLogin.Text == "")
-            {
-                MessageBox.Show("Vui lòng nhập tên đăng nhập!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
             // Kiểm tra xem đã đăng nhập đúng chưa
             try
             {
@@ -80,6 +69,18 @@ namespace Quiz_System_2018
                     Quiz_config_student SV = new Quiz_config_student();
                     SV.ShowDialog();
                     this.Show();
+                }
+                else if (txbLogin.Text == "" && txbPass.Text == "")
+                {
+                    MessageBox.Show("Vui lòng điền thông tin đăng nhập!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (txbPass.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập mật khẩu!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (txbLogin.Text == "")
+                {
+                    MessageBox.Show("Vui lòng nhập tên đăng nhập!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else 
                 {

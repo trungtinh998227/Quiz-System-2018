@@ -96,7 +96,7 @@
             this.bntLogin.TabIndex = 4;
             this.bntLogin.Text = "Đăng Nhập";
             this.bntLogin.UseVisualStyleBackColor = true;
-            this.bntLogin.Click += new System.EventHandler(this.bntLogin_Click);
+            this.bntLogin.Enter += new System.EventHandler(this.bntLogin_Click);
             // 
             // bntExit
             // 
@@ -159,6 +159,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Login_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_Form_FormClosing);
             this.Load += new System.EventHandler(this.Login_Form_Load);

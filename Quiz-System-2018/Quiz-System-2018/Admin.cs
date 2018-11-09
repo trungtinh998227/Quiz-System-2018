@@ -17,13 +17,30 @@ namespace Quiz_System_2018
         private SqlDataAdapter adapter;
         private SqlCommandBuilder builder;
         private DataTable dataTable;
-
         public Admin()
         {
             InitializeComponent();
             dataTable = new DataTable();
         }
-
+        void loadGrid()
+        {
+            //Xóa dữ liệu trong GridView thông qua dataTable
+            dataTable.Clear();
+            try
+            {
+                adapter = new SqlDataAdapter("select LOGIN.UserName, Password, Name, Khoa, Loai from LOGIN, DANHSACH where DANHSACH.UserName=LOGIN.UserName", conn);
+                //Lấy dữ liệu từ database chứa vào trong table
+                adapter.Fill(dataTable);
+                //Đưa dữ liệu từ table lên gridview
+                Gridview1.DataSource = dataTable;
+                conn.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi", "Thông báo", MessageBoxButtons.OKCancel);
+            }
+            
+        }
         private void Admin_Load(object sender, EventArgs e)
         {
             cbStyle.Text = "Giảng Viên";
@@ -31,12 +48,7 @@ namespace Quiz_System_2018
             bntEdit.Enabled = true;
             conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\Quiz_System_DB.mdf;Integrated Security=True;Connect Timeout=30");
             conn.Open();
-            adapter = new SqlDataAdapter("select LOGIN.UserName, Password, Name, Khoa, Loai from LOGIN, DANHSACH where DANHSACH.UserName=LOGIN.UserName", conn);
-            //Lấy dữ liệu từ database chứa vào trong table
-            adapter.Fill(dataTable);
-            //Đưa dữ liệu từ table lên gridview
-            Gridview1.DataSource = dataTable;
-            conn.Close();
+            loadGrid();
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -49,6 +61,7 @@ namespace Quiz_System_2018
             indexRow = e.RowIndex;
             DataGridViewRow row = Gridview1.Rows[indexRow];
             txbUsername.Text = row.Cells[0].Value.ToString();
+            // Không cho phép chỉnh sửa Style của admin
             if (txbUsername.Text == "Admin")
             {
                 cbStyle.Enabled = false;
@@ -58,6 +71,7 @@ namespace Quiz_System_2018
             txbName.Text = row.Cells[2].Value.ToString();
             cbStyle.Text = row.Cells[4].Value.ToString();
             txbKhoa.Text = row.Cells[3].Value.ToString();
+            
         }
 
         private void Admin_FormClosing(object sender, FormClosingEventArgs e)
@@ -77,10 +91,56 @@ namespace Quiz_System_2018
 
         private void bntEdit_Click(object sender, EventArgs e)
         {
-            DataGridViewRow newRowData = Gridview1.Rows[indexRow];
-            newRowData.Cells[2].Value = txbName.Text;
-            newRowData.Cells[4].Value = cbStyle.Text;
-            newRowData.Cells[3].Value = txbKhoa.Text;
+            
+            try
+            {
+                conn.Open();
+                string compareID = txbUsername.Text;
+                //where (select UserName from DANH SACH)
+                string newData = "update DANHSACH set Name='N"+txbName.Text+ "',Khoa=N'" + txbKhoa.Text + "',Loai=N'" + cbStyle.Text + "'where DANHSACH.UserName='"+compareID+"'";
+                adapter = new SqlDataAdapter(newData,conn);
+                adapter.SelectCommand.ExecuteNonQuery();
+                DataGridViewRow newRowData = Gridview1.Rows[indexRow];
+                //Tên
+                newRowData.Cells[2].Value = txbName.Text;
+                //Loai
+                newRowData.Cells[4].Value = cbStyle.Text;
+                //Khoa
+                newRowData.Cells[3].Value = txbKhoa.Text;
+                conn.Close();
+                MessageBox.Show("Cập nhật thông tin thành công","Thông báo!",MessageBoxButtons.OKCancel);
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi");
+            }
+        }
+
+        private void bntDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+                string cmdDelete = "delete from LOGIN where UserName='"+txbUsername.Text+"'";
+                adapter = new SqlDataAdapter(cmdDelete,conn);
+                adapter.SelectCommand.ExecuteNonQuery();
+                //Gridview1 = new DataGridView();
+                loadGrid();
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi","Thông báo");
+            }
+        }
+
+        private void bntAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbStyle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

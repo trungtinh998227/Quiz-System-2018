@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -92,7 +92,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(279, 337);
+            this.groupBox1.Size = new System.Drawing.Size(279, 277);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thêm dữ liệu:";
@@ -108,6 +108,7 @@
             this.cbStyle.Name = "cbStyle";
             this.cbStyle.Size = new System.Drawing.Size(181, 23);
             this.cbStyle.TabIndex = 10;
+            this.cbStyle.SelectedIndexChanged += new System.EventHandler(this.cbStyle_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -149,6 +150,7 @@
             this.bntDelete.TabIndex = 6;
             this.bntDelete.Text = "Xóa";
             this.bntDelete.UseVisualStyleBackColor = true;
+            this.bntDelete.Click += new System.EventHandler(this.bntDelete_Click);
             // 
             // bntAdd
             // 
@@ -159,6 +161,7 @@
             this.bntAdd.TabIndex = 5;
             this.bntAdd.Text = "Thêm";
             this.bntAdd.UseVisualStyleBackColor = true;
+            this.bntAdd.Click += new System.EventHandler(this.bntAdd_Click);
             // 
             // label3
             // 
@@ -220,13 +223,13 @@
             // đổiMậtKhẩuToolStripMenuItem
             // 
             this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
             this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
             // 
@@ -243,14 +246,14 @@
             this.Gridview1.BackgroundColor = System.Drawing.Color.Aqua;
             this.Gridview1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Gridview1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Gridview1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Gridview1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.Gridview1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Gridview1.GridColor = System.Drawing.SystemColors.ButtonFace;
             this.Gridview1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -258,7 +261,7 @@
             this.Gridview1.Name = "Gridview1";
             this.Gridview1.RowHeadersVisible = false;
             this.Gridview1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.Gridview1.Size = new System.Drawing.Size(820, 339);
+            this.Gridview1.Size = new System.Drawing.Size(820, 278);
             this.Gridview1.TabIndex = 3;
             this.Gridview1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Gridview1_CellClick);
             // 
@@ -266,7 +269,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1138, 378);
+            this.ClientSize = new System.Drawing.Size(1138, 317);
             this.Controls.Add(this.Gridview1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);

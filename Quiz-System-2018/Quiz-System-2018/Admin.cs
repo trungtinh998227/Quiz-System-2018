@@ -97,7 +97,7 @@ namespace Quiz_System_2018
                 conn.Open();
                 string compareID = txbUsername.Text;
                 //where (select UserName from DANH SACH)
-                string newData = "update DANHSACH set Name='N"+txbName.Text+ "',Khoa=N'" + txbKhoa.Text + "',Loai=N'" + cbStyle.Text + "'where DANHSACH.UserName='"+compareID+"'";
+                string newData = "update DANHSACH set Name=N'"+txbName.Text+ "',Khoa=N'" + txbKhoa.Text + "',Loai=N'" + cbStyle.Text + "'where DANHSACH.UserName='"+compareID+"'";
                 adapter = new SqlDataAdapter(newData,conn);
                 adapter.SelectCommand.ExecuteNonQuery();
                 DataGridViewRow newRowData = Gridview1.Rows[indexRow];
@@ -124,7 +124,6 @@ namespace Quiz_System_2018
                 string cmdDelete = "delete from LOGIN where UserName='"+txbUsername.Text+"'";
                 adapter = new SqlDataAdapter(cmdDelete,conn);
                 adapter.SelectCommand.ExecuteNonQuery();
-                //Gridview1 = new DataGridView();
                 loadGrid();
             }
             catch
@@ -141,6 +140,19 @@ namespace Quiz_System_2018
         private void cbStyle_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+            if(cbStyle.SelectedItem.ToString().Equals("Sinh viên", StringComparison.InvariantCultureIgnoreCase))
+            {
+                bntAdd.Enabled = true;
+                DataTable dbt = new DataTable();
+                conn.Open();
+                string countSV = "select count(*) from LOGIN where UserName='SV?'";
+                adapter = new SqlDataAdapter(countSV, conn);
+                adapter.Fill(dbt);
+                string re = dbt.Rows[0][0].ToString();
+                adapter.SelectCommand.ExecuteNonQuery();
+                conn.Close();
+                MessageBox.Show(re);
+            }
         }
     }
 }

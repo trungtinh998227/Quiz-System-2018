@@ -266,6 +266,8 @@
             this.Gridview1.Size = new System.Drawing.Size(820, 278);
             this.Gridview1.TabIndex = 3;
             this.Gridview1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Gridview1_CellClick);
+            this.Gridview1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Gridview1_CellClick);
+            this.Gridview1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Gridview1_CellClick);
             // 
             // Admin
             // 

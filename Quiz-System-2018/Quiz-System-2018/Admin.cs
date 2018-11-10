@@ -45,7 +45,7 @@ namespace Quiz_System_2018
         }
         private void Admin_Load(object sender, EventArgs e)
         {
-            cbStyle.Text = "Giảng Viên";
+            //cbStyle.Text = "Giảng Viên";
             bntDelete.Enabled = true;
             bntEdit.Enabled = true;
             conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\Quiz_System_DB.mdf;Integrated Security=True;Connect Timeout=30");
@@ -89,6 +89,7 @@ namespace Quiz_System_2018
             txbUsername.Text = "";
             txbName.Text = "";
             txbKhoa.Text = "";
+            cbStyle.Text = "";
         }
 
         private void bntEdit_Click(object sender, EventArgs e)
@@ -136,13 +137,11 @@ namespace Quiz_System_2018
 
         private void bntAdd_Click(object sender, EventArgs e)
         {
-            //check ERROR
-            //MessageBox.Show(count.ToString());
             try
-            {
+            {   
                 string newUser = "";
                 string newPass = "";
-                if (count > 0 && count < 10)
+                if (count > 0 && count < 10 && cbStyle.Text=="Sinh viên")
                 {
                     conn.Open();
                     newUser = "SV" + "00" + count;
@@ -150,7 +149,15 @@ namespace Quiz_System_2018
                     //thêm dữ liệu mới vào bảng LOGIN trước
                     txbUsername.Text = newUser;
                 }
-                else if(count > 9 && count < 100)
+                else
+                {
+                    conn.Open();
+                    newUser = "GV" + "00" + count;
+                    newPass = "TDTGv" + count;
+                    //thêm dữ liệu mới vào bảng LOGIN trước
+                    txbUsername.Text = newUser;
+                }
+                if(count > 9 && count < 100 && cbStyle.Text == "Sinh viên")
                 {
                     conn.Open();
                     newUser = "SV" + "0" + count;
@@ -161,8 +168,24 @@ namespace Quiz_System_2018
                 else
                 {
                     conn.Open();
+                    newUser = "GV" + "0" + count;
+                    newPass = "TDTGv" + count;
+                    //thêm dữ liệu mới vào bảng LOGIN trước
+                    txbUsername.Text = newUser;
+                }
+                if(count > 99 && count < 1000 && cbStyle.Text == "Sinh viên")
+                {
+                    conn.Open();
                     newUser = "SV"+ count;
                     newPass = "TDTSv" + count;
+                    //thêm dữ liệu mới vào bảng LOGIN trước
+                    txbUsername.Text = newUser;
+                }
+                else
+                {
+                    conn.Open();
+                    newUser = "GV" + count;
+                    newPass = "TDTGv" + count;
                     //thêm dữ liệu mới vào bảng LOGIN trước
                     txbUsername.Text = newUser;
                 }
@@ -175,7 +198,6 @@ namespace Quiz_System_2018
                     adapter = new SqlDataAdapter(addNewDS, conn);
                     adapter.SelectCommand.ExecuteNonQuery();
                     loadGrid();
-                    //conn.Close();
             }
             catch
             {
@@ -186,35 +208,60 @@ namespace Quiz_System_2018
 
         private void cbStyle_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             try
             {
+                bntAdd.Enabled = true;
+                //comboBox selected Sinh Viên
                 if (cbStyle.SelectedItem.ToString().Equals("Sinh viên", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    bntAdd.Enabled = true;
-                    DataTable dbt = new DataTable();
+                    //Tạo bảng lưu dữ liệu cảu sinh viên
+                    DataTable dbtSV = new DataTable();
                     conn.Open();
-                    string countSV = "select count(*) from DANHSACH where Loai='Sinh viên'";
+                    string countSV = "select count(*) from DANHSACH where Loai=N'Sinh viên'";
                     adapter = new SqlDataAdapter(countSV, conn);
-                    adapter.Fill(dbt);
-                    count = Convert.ToInt16(dbt.Rows[0][0].ToString());
+                    adapter.Fill(dbtSV);
+                    count = Convert.ToInt16(dbtSV.Rows[0][0].ToString());
                     count++;
                     //cần chỉnh lại
-                    txbUsername.Text = "SV" + "00" + count;
+                    if(count > 0 && count < 10)
+                    {
+                        txbUsername.Text = "SV" + "00" + count;
+                    }
+                    else if (count >9 && count <100)
+                    {
+                        txbUsername.Text = "SV" + "0" + count;
+                    }
+                    else
+                    {
+                        txbUsername.Text = "SV" + count;
+                    }
                     adapter.SelectCommand.ExecuteNonQuery();
                     conn.Close();
                 }
+                //comboBox selected Giảng viên
                 if(cbStyle.SelectedItem.ToString().Equals("Giảng viên", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    bntAdd.Enabled = true;
-                    DataTable dbt = new DataTable();
+                    // Tạo bảng lưu dữ liệu của giáo viên
+                    DataTable dbtGV = new DataTable();
                     conn.Open();
-                    string countGV = "select count(*) from DANHSACH where Loai='Giảng viên'";
+                    string countGV = "select count(*) from DANHSACH where Loai=N'Giảng viên'";
                     adapter = new SqlDataAdapter(countGV, conn);
-                    adapter.Fill(dbt);
-                    count = Convert.ToInt16(dbt.Rows[0][0].ToString());
+                    adapter.Fill(dbtGV);
+                    count = Convert.ToInt16(dbtGV.Rows[0][0].ToString());
                     count++;
-                    //cần chỉnh lại
-                    txbUsername.Text = "GV" + "00" + count;
+                    if (count > 0 && count < 10)
+                    {
+                        txbUsername.Text = "GV" + "00" + count;
+                    }
+                    else if (count > 9 && count < 100)
+                    {
+                        txbUsername.Text = "GV" + "0" + count;
+                    }
+                    else
+                    {
+                        txbUsername.Text = "GV" + count;
+                    }
                     adapter.SelectCommand.ExecuteNonQuery();
                     conn.Close();
                 }

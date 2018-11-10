@@ -67,8 +67,13 @@ namespace Quiz_System_2018
             if (txbUsername.Text == "Admin")
             {
                 cbStyle.Enabled = false;
+                bntDelete.Enabled = false;
             }
-            else cbStyle.Enabled = true;
+            else
+            {
+                cbStyle.Enabled = true;
+                bntDelete.Enabled = false;
+            }
 
             txbName.Text = row.Cells[2].Value.ToString();
             cbStyle.Text = row.Cells[4].Value.ToString();

@@ -16,9 +16,9 @@ namespace Quiz_System_2018
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Login_Form());
+            Application.Run(new Login_Form());
             //Application.Run(new Admin());
-            Application.Run(new Quiz_config_teacher());
+            //Application.Run(new Quiz_config_teacher());
         }
     }
 }

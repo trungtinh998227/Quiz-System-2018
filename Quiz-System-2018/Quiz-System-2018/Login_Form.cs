@@ -13,6 +13,15 @@ namespace Quiz_System_2018
 {
     public partial class Login_Form : Form
     {
+        //Tạo biến lưu lại thông tin dùng cho form Giảng viên và Sinh viên
+        string UserName;
+        public string MyUsername
+        {
+            get { return UserName; }
+            set { UserName = value; }
+        }
+
+
         public Login_Form()
         {
             InitializeComponent();
@@ -20,6 +29,7 @@ namespace Quiz_System_2018
 
         private void bntLogin_Click(object sender, EventArgs e) 
         {
+            MyUsername = txbLogin.Text;
             string checkUserNameAdmin = "Admin";
             string checkUserNameGV = "GV";
             string checkUserNameSV = "SV";
@@ -60,7 +70,7 @@ namespace Quiz_System_2018
                 else if (check == 2)
                 {
                     this.Hide();
-                    Quiz_config_teacher GV = new Quiz_config_teacher();
+                    Quiz_config_teacher GV = new Quiz_config_teacher(MyUsername);
                     GV.ShowDialog();
                     this.Show();                }
                 else if (check == 3)
@@ -93,11 +103,6 @@ namespace Quiz_System_2018
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void Login_Form_Load(object sender, EventArgs e)
-        {
-        }
-
         private void bntExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -110,6 +115,5 @@ namespace Quiz_System_2018
                 e.Cancel = true;
             }
         }
-      
     }
 }

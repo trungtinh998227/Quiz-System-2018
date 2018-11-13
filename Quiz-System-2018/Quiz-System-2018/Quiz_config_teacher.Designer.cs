@@ -48,11 +48,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.quiz_System_DBDataSet = new Quiz_System_2018.Quiz_System_DBDataSet();
             this.quizSystemDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.quizSystemDBDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.quizSystemDBDataSetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quiz_System_DBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quizSystemDBDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quizSystemDBDataSetBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quizSystemDBDataSetBindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -75,6 +79,7 @@
             // 
             // txbIDCourse
             // 
+            this.txbIDCourse.Enabled = false;
             this.txbIDCourse.Location = new System.Drawing.Point(69, 25);
             this.txbIDCourse.Name = "txbIDCourse";
             this.txbIDCourse.ReadOnly = true;
@@ -88,6 +93,7 @@
             this.cbNameCourse.Name = "cbNameCourse";
             this.cbNameCourse.Size = new System.Drawing.Size(121, 21);
             this.cbNameCourse.TabIndex = 3;
+            this.cbNameCourse.SelectedIndexChanged += new System.EventHandler(this.cbNameCourse_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -143,6 +149,11 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
             this.comboBox2.Location = new System.Drawing.Point(102, 184);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(92, 21);
@@ -177,7 +188,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(148, 254);
+            this.button3.Location = new System.Drawing.Point(149, 254);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 7;
@@ -238,6 +249,16 @@
             this.quizSystemDBDataSetBindingSource.DataSource = this.quiz_System_DBDataSet;
             this.quizSystemDBDataSetBindingSource.Position = 0;
             // 
+            // quizSystemDBDataSetBindingSource1
+            // 
+            this.quizSystemDBDataSetBindingSource1.DataSource = this.quiz_System_DBDataSet;
+            this.quizSystemDBDataSetBindingSource1.Position = 0;
+            // 
+            // quizSystemDBDataSetBindingSource2
+            // 
+            this.quizSystemDBDataSetBindingSource2.DataSource = this.quiz_System_DBDataSet;
+            this.quizSystemDBDataSetBindingSource2.Position = 0;
+            // 
             // Quiz_config_teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,6 +270,7 @@
             this.MinimizeBox = false;
             this.Name = "Quiz_config_teacher";
             this.Text = "Giảng viên";
+            this.Load += new System.EventHandler(this.Quiz_config_teacher_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -256,6 +278,8 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quiz_System_DBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quizSystemDBDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quizSystemDBDataSetBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quizSystemDBDataSetBindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -281,5 +305,7 @@
         private System.Windows.Forms.Button button2;
         private Quiz_System_DBDataSet quiz_System_DBDataSet;
         private System.Windows.Forms.BindingSource quizSystemDBDataSetBindingSource;
+        private System.Windows.Forms.BindingSource quizSystemDBDataSetBindingSource1;
+        private System.Windows.Forms.BindingSource quizSystemDBDataSetBindingSource2;
     }
 }

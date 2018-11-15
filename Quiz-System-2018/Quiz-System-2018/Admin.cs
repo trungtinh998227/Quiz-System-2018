@@ -227,7 +227,7 @@ namespace Quiz_System_2018
                     adapter.Fill(dbtSV);
                     count = Convert.ToInt16(dbtSV.Rows[0][0].ToString());
                     count++;
-                    //cần chỉnh lại
+
                     if(count > 0 && count < 10)
                     {
                         txbUsername.Text = "SV" + "00" + count;

@@ -286,6 +286,7 @@
             this.cbLevelQue.Name = "cbLevelQue";
             this.cbLevelQue.Size = new System.Drawing.Size(103, 21);
             this.cbLevelQue.TabIndex = 11;
+            this.cbLevelQue.SelectedIndexChanged += new System.EventHandler(this.cbLevelQue_SelectedIndexChanged);
             // 
             // Quiz_config_teacher
             // 

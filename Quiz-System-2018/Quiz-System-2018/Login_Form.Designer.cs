@@ -139,6 +139,7 @@
             this.txbPass.PasswordChar = '*';
             this.txbPass.Size = new System.Drawing.Size(224, 23);
             this.txbPass.TabIndex = 2;
+            this.txbPass.UseSystemPasswordChar = true;
             // 
             // Login_Form
             // 

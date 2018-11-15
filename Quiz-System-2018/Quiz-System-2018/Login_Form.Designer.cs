@@ -96,7 +96,6 @@
             this.bntLogin.TabIndex = 4;
             this.bntLogin.Text = "Đăng Nhập";
             this.bntLogin.UseVisualStyleBackColor = true;
-//            this.bntLogin.Click += new System.EventHandler(this.bntLogin_Click_1);
             this.bntLogin.Enter += new System.EventHandler(this.bntLogin_Click);
             // 
             // bntExit

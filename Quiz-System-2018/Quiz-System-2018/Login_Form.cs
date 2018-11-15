@@ -15,12 +15,19 @@ namespace Quiz_System_2018
     {
         //Tạo biến lưu lại thông tin dùng cho form Giảng viên và Sinh viên
         string UserName;
+        string Pass;
+        //Gửi User name
         public string MyUsername
         {
             get { return UserName; }
             set { UserName = value; }
         }
-
+        //Gửi password
+        public string MyPass
+        {
+            get { return Pass; }
+            set { Pass = value; }
+        }
 
         public Login_Form()
         {
@@ -30,6 +37,7 @@ namespace Quiz_System_2018
         private void bntLogin_Click(object sender, EventArgs e) 
         {
             MyUsername = txbLogin.Text;
+            MyPass = txbPass.Text;
             string checkUserNameAdmin = "Admin";
             string checkUserNameGV = "GV";
             string checkUserNameSV = "SV";
@@ -70,7 +78,7 @@ namespace Quiz_System_2018
                 else if (check == 2)
                 {
                     this.Hide();
-                    Quiz_config_teacher GV = new Quiz_config_teacher(MyUsername);
+                    Quiz_config_teacher GV = new Quiz_config_teacher(MyUsername,MyPass);
                     GV.ShowDialog();
                     this.Show();                }
                 else if (check == 3)

@@ -195,7 +195,6 @@ namespace Quiz_System_2018
                     txbUsername.Text = newUser;
                 }
                     string addNewSV = "insert into LOGIN values ('" + newUser + "','" + newPass + "')";
-                    //+","+ "insert into DANHSACH values ( UserName='" + newUser + "',Name=N'" + txbUsername.Text + "',Khoa=N'" + txbKhoa.Text + "',Loai=N'" + cbStyle.Text + "')";
                     adapter = new SqlDataAdapter(addNewSV, conn);
                     adapter.SelectCommand.ExecuteNonQuery();
                     //Thêm dữ liệu vào bảng DANHSACH

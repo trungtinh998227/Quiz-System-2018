@@ -240,9 +240,6 @@
             this.Gridview1.AllowUserToDeleteRows = false;
             this.Gridview1.AllowUserToResizeColumns = false;
             this.Gridview1.AllowUserToResizeRows = false;
-            this.Gridview1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Gridview1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Gridview1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.Gridview1.BackgroundColor = System.Drawing.Color.Aqua;

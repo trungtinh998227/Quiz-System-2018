@@ -15,3 +15,4 @@ C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Re
 C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\bin\Release\Quiz_System_DB.mdf
 C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\bin\Release\Quiz_System_DB_log.ldf
 C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz_System_2018.newMon.resources
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz_System_2018.Answer.resources

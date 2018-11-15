@@ -36,10 +36,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.griListQue = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbLevelQue = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbNumOfAns = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.bntEdit = new System.Windows.Forms.Button();
+            this.bntClick = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.txbAskQues = new System.Windows.Forms.TextBox();
@@ -50,8 +52,6 @@
             this.quizSystemDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quizSystemDBDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.quizSystemDBDataSetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbLevelQue = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.griListQue)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -134,10 +134,10 @@
             this.groupBox2.BackColor = System.Drawing.Color.Linen;
             this.groupBox2.Controls.Add(this.cbLevelQue);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.comboBox2);
+            this.groupBox2.Controls.Add(this.cbNumOfAns);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.bntEdit);
+            this.groupBox2.Controls.Add(this.bntClick);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.txbAskQues);
@@ -152,17 +152,40 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thêm câu hỏi";
             // 
-            // comboBox2
+            // cbLevelQue
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbLevelQue.Enabled = false;
+            this.cbLevelQue.FormattingEnabled = true;
+            this.cbLevelQue.Items.AddRange(new object[] {
+            "Dễ",
+            "Trung bình",
+            "Khó"});
+            this.cbLevelQue.Location = new System.Drawing.Point(260, 32);
+            this.cbLevelQue.Name = "cbLevelQue";
+            this.cbLevelQue.Size = new System.Drawing.Size(103, 21);
+            this.cbLevelQue.TabIndex = 11;
+            this.cbLevelQue.SelectedIndexChanged += new System.EventHandler(this.cbLevelQue_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(207, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Độ khó:";
+            // 
+            // cbNumOfAns
+            // 
+            this.cbNumOfAns.FormattingEnabled = true;
+            this.cbNumOfAns.Items.AddRange(new object[] {
             "2",
             "3",
             "4"});
-            this.comboBox2.Location = new System.Drawing.Point(102, 190);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(92, 21);
-            this.comboBox2.TabIndex = 9;
+            this.cbNumOfAns.Location = new System.Drawing.Point(102, 190);
+            this.cbNumOfAns.Name = "cbNumOfAns";
+            this.cbNumOfAns.Size = new System.Drawing.Size(92, 21);
+            this.cbNumOfAns.TabIndex = 9;
             // 
             // label5
             // 
@@ -182,14 +205,15 @@
             this.button4.Text = "Sửa";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // bntEdit
+            // bntClick
             // 
-            this.bntEdit.Location = new System.Drawing.Point(209, 190);
-            this.bntEdit.Name = "bntEdit";
-            this.bntEdit.Size = new System.Drawing.Size(75, 23);
-            this.bntEdit.TabIndex = 7;
-            this.bntEdit.Text = "Chọn";
-            this.bntEdit.UseVisualStyleBackColor = true;
+            this.bntClick.Location = new System.Drawing.Point(209, 190);
+            this.bntClick.Name = "bntClick";
+            this.bntClick.Size = new System.Drawing.Size(75, 23);
+            this.bntClick.TabIndex = 7;
+            this.bntClick.Text = "Chọn";
+            this.bntClick.UseVisualStyleBackColor = true;
+            this.bntClick.Click += new System.EventHandler(this.bntEdit_Click);
             // 
             // button3
             // 
@@ -265,29 +289,6 @@
             this.quizSystemDBDataSetBindingSource2.DataSource = this.quiz_System_DBDataSet;
             this.quizSystemDBDataSetBindingSource2.Position = 0;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(207, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Độ khó:";
-            // 
-            // cbLevelQue
-            // 
-            this.cbLevelQue.Enabled = false;
-            this.cbLevelQue.FormattingEnabled = true;
-            this.cbLevelQue.Items.AddRange(new object[] {
-            "Dễ",
-            "Trung bình",
-            "Khó"});
-            this.cbLevelQue.Location = new System.Drawing.Point(260, 32);
-            this.cbLevelQue.Name = "cbLevelQue";
-            this.cbLevelQue.Size = new System.Drawing.Size(103, 21);
-            this.cbLevelQue.TabIndex = 11;
-            this.cbLevelQue.SelectedIndexChanged += new System.EventHandler(this.cbLevelQue_SelectedIndexChanged);
-            // 
             // Quiz_config_teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,10 +327,10 @@
         private System.Windows.Forms.TextBox txbAskQues;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txbIdQues;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbNumOfAns;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button bntEdit;
+        private System.Windows.Forms.Button bntClick;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private Quiz_System_DBDataSet quiz_System_DBDataSet;

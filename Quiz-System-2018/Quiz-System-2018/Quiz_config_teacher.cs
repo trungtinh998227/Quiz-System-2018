@@ -13,21 +13,24 @@ namespace Quiz_System_2018
 {
     public partial class Quiz_config_teacher : Form
     {
-        string checkUser;
-        string checkPass;
+        string checkUser;//biến nhận Username từ LOGIN_FORM
+        string checkPass;//biến nhận PASS từ LOGIN_FORM
+        string Question="";
         public Quiz_config_teacher(string value, string values)
         {
             InitializeComponent();
             checkUser = value;
             checkPass = values;
         }
-
+        public string passingQues
+        {
+            get { return Question; }
+            set { Question=value; }
+        }
 
         //Mở kết nỗi database
         private SqlConnection conn;
         private SqlDataAdapter adapter;
-        private SqlCommandBuilder builder;
-        private DataTable dataTable;
 
         private void load_cbNameCourse()
         {
@@ -101,59 +104,76 @@ namespace Quiz_System_2018
             {
                 MessageBox.Show("Lỗi rồi kìa anh ơi");
             }
-        } 
+        }
+        //Biến để lưu ID câu hỏi mới và chuyển vào db
+        string newIdQues = "";
+        string saveId = "";
+        //Tạo ID tự động tăng
+        private void create_NewIdQuestion(string Str)
+        {
+            int count = 0;//Biến đếm số lượng câu hỏi, theo loại câu hỏi
+            conn.Open();
+            DataTable eaTbd = new DataTable();
+            string eaQues = "SELECT COUNT (*) FROM CAUHOI WHERE Loai = '"+saveId+"'";
+            adapter = new SqlDataAdapter(eaQues, conn);
+            adapter.Fill(eaTbd);
+            count = Convert.ToInt16(eaTbd.Rows[0][0].ToString());
+            count++;
+            if (count > 0 && count < 10)
+            {
+                txbIdQues.Text = Str + "000" + count;
+                newIdQues = Str + "000" + count;
+            }
+            else if (count > 9 && count < 100)
+            {
+                txbIdQues.Text = Str + "00" + count;
+                newIdQues = Str + "00" + count;
+            }
+            else if (count > 99 && count < 1000)
+            {
+                txbIdQues.Text = Str + "0" + count;
+                newIdQues = Str + "0" + count;
+            }
+            else
+            {
+                txbIdQues.Text = Str + count;
+                newIdQues = Str + count;
+            }
+            conn.Close();
+        }
         private void cbLevelQue_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            //chọn độ khó cho câu hỏi
-            txbAskQues.Enabled = true;
-            string newIdQues = "";
-            try
-            {   int count = 0;//Biến đếm số lượng câu hỏi, theo loại câu hỏi
+            txbAskQues.Enabled = true;// Cho phép người dùng nhập câu hỏi
+            try //chọn độ khó cho câu hỏi
+            {   
                 if (cbLevelQue.SelectedItem.ToString().Equals("Dễ"))
                 {
-                    conn.Open();
-                    DataTable eaTbd = new DataTable();
-                    string eaQues = "SELECT COUNT (*) FROM CAUHOI WHERE Loai = 'Dê'";
-                    adapter = new SqlDataAdapter(eaQues, conn);
-                    adapter.Fill(eaTbd);
-                    count = Convert.ToInt16(eaTbd.Rows[0][0].ToString());
-                    count++;
-                    if(count > 0 && count < 10)
-                    {
-                        txbIdQues.Text = "EA" + "000" + count;
-                        newIdQues = "EA" + "000" + count;
-                    }
-                    else if(count >9 && count < 100)
-                    {
-                        txbIdQues.Text = "EA" + "00" + count;
-                        newIdQues = "EA" + "00" + count;
-                    }
-                    else if(count >99 && count < 1000)
-                    {
-                        txbIdQues.Text = "EA" + "0" + count;
-                        newIdQues = "EA" + "0" + count;
-                    }
-                    else
-                    {
-                        txbIdQues.Text = "EA" + count;
-                        newIdQues = "EA" + count;
-                    }
-                    conn.Close();
+                    saveId = "Dê";
+                    create_NewIdQuestion("EA");
+                    
                 }
                 else if(cbLevelQue.SelectedItem.ToString().Equals("Trung bình"))
                 {
-
+                    saveId = "Trung bình";
+                    create_NewIdQuestion("MD");
                 }
                 else
                 {
-
+                    saveId = "Khó";
+                    create_NewIdQuestion("DF");
                 }
             }
             catch
             {
                 MessageBox.Show("Lỗi gì rồi anh ơi","Thông báo");
             }
+        }
+
+        private void bntEdit_Click(object sender, EventArgs e)
+        {
+            Question = txbAskQues.Text;
+            int number = Convert.ToInt16(cbNumOfAns.Text);
+            Answer newAns = new Answer(Question,number);
         }
     }
 }

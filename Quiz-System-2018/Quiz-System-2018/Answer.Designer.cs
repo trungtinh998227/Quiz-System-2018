@@ -33,19 +33,17 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.cbTrueAns = new System.Windows.Forms.ComboBox();
+            this.txb4 = new System.Windows.Forms.TextBox();
+            this.txb3 = new System.Windows.Forms.TextBox();
+            this.txb2 = new System.Windows.Forms.TextBox();
+            this.txb1 = new System.Windows.Forms.TextBox();
+            this.lb2 = new System.Windows.Forms.Label();
+            this.lb3 = new System.Windows.Forms.Label();
+            this.lb1 = new System.Windows.Forms.Label();
+            this.lb4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.bntExit = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.bntUpdate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gridAnswer)).BeginInit();
@@ -60,11 +58,12 @@
             this.gridAnswer.AllowUserToResizeColumns = false;
             this.gridAnswer.AllowUserToResizeRows = false;
             this.gridAnswer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gridAnswer.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.gridAnswer.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.gridAnswer.BackgroundColor = System.Drawing.Color.Azure;
             this.gridAnswer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridAnswer.Location = new System.Drawing.Point(254, 31);
             this.gridAnswer.Name = "gridAnswer";
+            this.gridAnswer.RowHeadersVisible = false;
             this.gridAnswer.Size = new System.Drawing.Size(574, 133);
             this.gridAnswer.TabIndex = 2;
             // 
@@ -84,8 +83,6 @@
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.bntExit);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.bntUpdate);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txbQues);
@@ -101,15 +98,15 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.cbTrueAns);
+            this.groupBox2.Controls.Add(this.txb4);
+            this.groupBox2.Controls.Add(this.txb3);
+            this.groupBox2.Controls.Add(this.txb2);
+            this.groupBox2.Controls.Add(this.txb1);
+            this.groupBox2.Controls.Add(this.lb2);
+            this.groupBox2.Controls.Add(this.lb3);
+            this.groupBox2.Controls.Add(this.lb1);
+            this.groupBox2.Controls.Add(this.lb4);
             this.groupBox2.Location = new System.Drawing.Point(254, 170);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(568, 195);
@@ -128,101 +125,101 @@
             this.label7.TabIndex = 11;
             this.label7.Text = "Đáp án đúng:";
             // 
-            // comboBox1
+            // cbTrueAns
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(466, 81);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(96, 21);
-            this.comboBox1.TabIndex = 10;
+            this.cbTrueAns.FormattingEnabled = true;
+            this.cbTrueAns.Location = new System.Drawing.Point(466, 81);
+            this.cbTrueAns.Name = "cbTrueAns";
+            this.cbTrueAns.Size = new System.Drawing.Size(96, 21);
+            this.cbTrueAns.TabIndex = 5;
             // 
-            // textBox4
+            // txb4
             // 
-            this.textBox4.Location = new System.Drawing.Point(78, 159);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(365, 24);
-            this.textBox4.TabIndex = 9;
-            this.textBox4.Visible = false;
+            this.txb4.Location = new System.Drawing.Point(78, 159);
+            this.txb4.Multiline = true;
+            this.txb4.Name = "txb4";
+            this.txb4.Size = new System.Drawing.Size(365, 24);
+            this.txb4.TabIndex = 4;
+            this.txb4.Visible = false;
             // 
-            // textBox3
+            // txb3
             // 
-            this.textBox3.Location = new System.Drawing.Point(78, 110);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(365, 24);
-            this.textBox3.TabIndex = 9;
-            this.textBox3.Visible = false;
+            this.txb3.Location = new System.Drawing.Point(78, 110);
+            this.txb3.Multiline = true;
+            this.txb3.Name = "txb3";
+            this.txb3.Size = new System.Drawing.Size(365, 24);
+            this.txb3.TabIndex = 3;
+            this.txb3.Visible = false;
             // 
-            // textBox2
+            // txb2
             // 
-            this.textBox2.Location = new System.Drawing.Point(78, 63);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(365, 24);
-            this.textBox2.TabIndex = 9;
-            this.textBox2.Visible = false;
+            this.txb2.Location = new System.Drawing.Point(78, 63);
+            this.txb2.Multiline = true;
+            this.txb2.Name = "txb2";
+            this.txb2.Size = new System.Drawing.Size(365, 24);
+            this.txb2.TabIndex = 2;
+            this.txb2.Visible = false;
             // 
-            // textBox1
+            // txb1
             // 
-            this.textBox1.Location = new System.Drawing.Point(78, 19);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(365, 24);
-            this.textBox1.TabIndex = 9;
-            this.textBox1.Visible = false;
+            this.txb1.Location = new System.Drawing.Point(78, 19);
+            this.txb1.Multiline = true;
+            this.txb1.Name = "txb1";
+            this.txb1.Size = new System.Drawing.Size(365, 24);
+            this.txb1.TabIndex = 1;
+            this.txb1.Visible = false;
             // 
-            // label5
+            // lb2
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.DarkCyan;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label5.Location = new System.Drawing.Point(15, 70);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 15);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Đáp án 2:";
-            this.label5.Visible = false;
+            this.lb2.AutoSize = true;
+            this.lb2.BackColor = System.Drawing.Color.DarkCyan;
+            this.lb2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb2.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lb2.Location = new System.Drawing.Point(15, 70);
+            this.lb2.Name = "lb2";
+            this.lb2.Size = new System.Drawing.Size(57, 15);
+            this.lb2.TabIndex = 8;
+            this.lb2.Text = "Đáp án 2:";
+            this.lb2.Visible = false;
             // 
-            // label6
+            // lb3
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.DarkCyan;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label6.Location = new System.Drawing.Point(15, 116);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 15);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Đáp án 3:";
-            this.label6.Visible = false;
+            this.lb3.AutoSize = true;
+            this.lb3.BackColor = System.Drawing.Color.DarkCyan;
+            this.lb3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb3.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lb3.Location = new System.Drawing.Point(15, 116);
+            this.lb3.Name = "lb3";
+            this.lb3.Size = new System.Drawing.Size(57, 15);
+            this.lb3.TabIndex = 8;
+            this.lb3.Text = "Đáp án 3:";
+            this.lb3.Visible = false;
             // 
-            // label3
+            // lb1
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.DarkCyan;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label3.Location = new System.Drawing.Point(15, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 15);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Đáp án 1:";
-            this.label3.Visible = false;
+            this.lb1.AutoSize = true;
+            this.lb1.BackColor = System.Drawing.Color.DarkCyan;
+            this.lb1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb1.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lb1.Location = new System.Drawing.Point(15, 25);
+            this.lb1.Name = "lb1";
+            this.lb1.Size = new System.Drawing.Size(57, 15);
+            this.lb1.TabIndex = 8;
+            this.lb1.Text = "Đáp án 1:";
+            this.lb1.Visible = false;
             // 
-            // label4
+            // lb4
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.DarkCyan;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label4.Location = new System.Drawing.Point(15, 162);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 15);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Đáp án 4:";
-            this.label4.Visible = false;
+            this.lb4.AutoSize = true;
+            this.lb4.BackColor = System.Drawing.Color.DarkCyan;
+            this.lb4.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb4.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lb4.Location = new System.Drawing.Point(15, 162);
+            this.lb4.Name = "lb4";
+            this.lb4.Size = new System.Drawing.Size(57, 15);
+            this.lb4.TabIndex = 8;
+            this.lb4.Text = "Đáp án 4:";
+            this.lb4.Visible = false;
             // 
             // label2
             // 
@@ -238,42 +235,24 @@
             // bntExit
             // 
             this.bntExit.Font = new System.Drawing.Font("Times New Roman", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntExit.Location = new System.Drawing.Point(132, 280);
+            this.bntExit.Location = new System.Drawing.Point(138, 253);
             this.bntExit.Name = "bntExit";
             this.bntExit.Size = new System.Drawing.Size(91, 36);
-            this.bntExit.TabIndex = 6;
+            this.bntExit.TabIndex = 7;
             this.bntExit.Text = "Thoát";
             this.bntExit.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(132, 224);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(91, 36);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Định dạng";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(31, 223);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 36);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Thêm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bntExit.Click += new System.EventHandler(this.bntExit_Click);
             // 
             // bntUpdate
             // 
             this.bntUpdate.Font = new System.Drawing.Font("Times New Roman", 10.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntUpdate.Location = new System.Drawing.Point(31, 280);
+            this.bntUpdate.Location = new System.Drawing.Point(29, 253);
             this.bntUpdate.Name = "bntUpdate";
             this.bntUpdate.Size = new System.Drawing.Size(91, 36);
-            this.bntUpdate.TabIndex = 5;
+            this.bntUpdate.TabIndex = 6;
             this.bntUpdate.Text = "Cập nhật";
             this.bntUpdate.UseVisualStyleBackColor = true;
+            this.bntUpdate.Click += new System.EventHandler(this.bntUpdate_Click);
             // 
             // label1
             // 
@@ -293,7 +272,8 @@
             this.ClientSize = new System.Drawing.Size(834, 377);
             this.Controls.Add(this.groupBox1);
             this.Name = "Answer";
-            this.Text = "Answer";
+            this.Text = "Đáp án";
+            this.Load += new System.EventHandler(this.Answer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridAnswer)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -310,19 +290,17 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button bntExit;
         private System.Windows.Forms.Button bntUpdate;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lb3;
+        private System.Windows.Forms.Label lb2;
+        private System.Windows.Forms.Label lb4;
+        private System.Windows.Forms.Label lb1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txb4;
+        private System.Windows.Forms.TextBox txb3;
+        private System.Windows.Forms.TextBox txb2;
+        private System.Windows.Forms.TextBox txb1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbTrueAns;
     }
 }

@@ -40,10 +40,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cbNumOfAns = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.bntEdit = new System.Windows.Forms.Button();
             this.bntClick = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.bntDel = new System.Windows.Forms.Button();
+            this.bntAdd = new System.Windows.Forms.Button();
             this.txbAskQues = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txbIdQues = new System.Windows.Forms.TextBox();
@@ -128,6 +128,7 @@
             this.griListQue.Name = "griListQue";
             this.griListQue.Size = new System.Drawing.Size(397, 411);
             this.griListQue.TabIndex = 5;
+            this.griListQue.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.griListQue_CellContentClick);
             // 
             // groupBox2
             // 
@@ -136,18 +137,18 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.cbNumOfAns);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.bntEdit);
             this.groupBox2.Controls.Add(this.bntClick);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.bntDel);
+            this.groupBox2.Controls.Add(this.bntAdd);
             this.groupBox2.Controls.Add(this.txbAskQues);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txbIdQues);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(16, 135);
+            this.groupBox2.Location = new System.Drawing.Point(16, 132);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(369, 292);
+            this.groupBox2.Size = new System.Drawing.Size(369, 295);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Thêm câu hỏi";
@@ -196,42 +197,43 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "Số câu trả lời:";
             // 
-            // button4
+            // bntEdit
             // 
-            this.button4.Location = new System.Drawing.Point(260, 248);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "Sửa";
-            this.button4.UseVisualStyleBackColor = true;
+            this.bntEdit.Location = new System.Drawing.Point(260, 248);
+            this.bntEdit.Name = "bntEdit";
+            this.bntEdit.Size = new System.Drawing.Size(75, 23);
+            this.bntEdit.TabIndex = 5;
+            this.bntEdit.Text = "Sửa";
+            this.bntEdit.UseVisualStyleBackColor = true;
             // 
             // bntClick
             // 
             this.bntClick.Location = new System.Drawing.Point(209, 190);
             this.bntClick.Name = "bntClick";
             this.bntClick.Size = new System.Drawing.Size(75, 23);
-            this.bntClick.TabIndex = 7;
+            this.bntClick.TabIndex = 2;
             this.bntClick.Text = "Chọn";
             this.bntClick.UseVisualStyleBackColor = true;
             this.bntClick.Click += new System.EventHandler(this.bntEdit_Click);
             // 
-            // button3
+            // bntDel
             // 
-            this.button3.Location = new System.Drawing.Point(149, 248);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Xóa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.bntDel.Location = new System.Drawing.Point(149, 248);
+            this.bntDel.Name = "bntDel";
+            this.bntDel.Size = new System.Drawing.Size(75, 23);
+            this.bntDel.TabIndex = 4;
+            this.bntDel.Text = "Xóa";
+            this.bntDel.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // bntAdd
             // 
-            this.button2.Location = new System.Drawing.Point(36, 248);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Thêm";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bntAdd.Location = new System.Drawing.Point(36, 248);
+            this.bntAdd.Name = "bntAdd";
+            this.bntAdd.Size = new System.Drawing.Size(75, 23);
+            this.bntAdd.TabIndex = 3;
+            this.bntAdd.Text = "Thêm";
+            this.bntAdd.UseVisualStyleBackColor = true;
+            this.bntAdd.Click += new System.EventHandler(this.bntAdd_Click);
             // 
             // txbAskQues
             // 
@@ -240,7 +242,7 @@
             this.txbAskQues.Multiline = true;
             this.txbAskQues.Name = "txbAskQues";
             this.txbAskQues.Size = new System.Drawing.Size(262, 86);
-            this.txbAskQues.TabIndex = 5;
+            this.txbAskQues.TabIndex = 1;
             // 
             // label4
             // 
@@ -299,6 +301,7 @@
             this.Controls.Add(this.groupBox1);
             this.MinimizeBox = false;
             this.Name = "Quiz_config_teacher";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Giảng viên";
             this.Load += new System.EventHandler(this.Quiz_config_teacher_Load);
             this.groupBox1.ResumeLayout(false);
@@ -329,10 +332,10 @@
         private System.Windows.Forms.TextBox txbIdQues;
         private System.Windows.Forms.ComboBox cbNumOfAns;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button bntEdit;
         private System.Windows.Forms.Button bntClick;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bntDel;
+        private System.Windows.Forms.Button bntAdd;
         private Quiz_System_DBDataSet quiz_System_DBDataSet;
         private System.Windows.Forms.BindingSource quizSystemDBDataSetBindingSource;
         private System.Windows.Forms.BindingSource quizSystemDBDataSetBindingSource1;

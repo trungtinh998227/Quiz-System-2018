@@ -15,7 +15,7 @@ namespace Quiz_System_2018
     {
         string checkUser;//biến nhận Username từ LOGIN_FORM
         string checkPass;//biến nhận PASS từ LOGIN_FORM
-        string Question="";
+        string IDQuestion="";
         public Quiz_config_teacher(string value, string values)
         {
             InitializeComponent();
@@ -24,14 +24,17 @@ namespace Quiz_System_2018
         }
         public string passingQues
         {
-            get { return Question; }
-            set { Question=value; }
+            get { return IDQuestion; }
+            set { IDQuestion=value; }
         }
 
         //Mở kết nỗi database
         private SqlConnection conn;
         private SqlDataAdapter adapter;
+        private DataTable dbtGV;
 
+
+        //đổ dữ liệu vào combobox
         private void load_cbNameCourse()
         {
             cbNameCourse.Items.Clear();
@@ -47,6 +50,26 @@ namespace Quiz_System_2018
             conn.Close();
         }
 
+        private void load_grid()// Load dữ liệu CauHoi lên Griview
+        {
+            try
+            {
+                conn.Open();
+                DataTable dtb = new DataTable();
+                string loadgrid = "SELECT MaCauHoi as N'Mã câu hỏi', MaMon as N'Mã môn', CauHoi as N'Câu hỏi', SoDapAn as N'Số đáp án' from CAUHOI WHERE MaMon='" + txbIDCourse.Text + "'";
+                adapter = new SqlDataAdapter(loadgrid, conn);
+                adapter.SelectCommand.ExecuteNonQuery();
+                adapter.Fill(dtb);
+                griListQue.DataSource = dtb;
+                conn.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi kết nối rồi kìa anh");
+            }
+            
+        }
+
         //Form dành cho giảng viên, load đầu tiên khi giảng viên đăng nhập thành công
         private void Quiz_config_teacher_Load(object sender, EventArgs e)
         {
@@ -55,6 +78,7 @@ namespace Quiz_System_2018
             {
                 //Load TENMON từ db vào combobox
                 load_cbNameCourse();
+                bntClick.Enabled = true;
             }
             catch
             {
@@ -64,7 +88,9 @@ namespace Quiz_System_2018
 
         private void cbNameCourse_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            txbIdQues.Text = "";
+            cbLevelQue.Text = "";
+            txbAskQues.Text = "";
             try
             {
                 if(cbNameCourse.SelectedItem.ToString().Equals("Other..."))
@@ -79,7 +105,7 @@ namespace Quiz_System_2018
                 else
                 {
                     cbLevelQue.Enabled = true;
-                    DataTable dbtGV = new DataTable();
+                    dbtGV = new DataTable();
                     //Lấy mã môn học từ dữ liệu
                     conn.Open();
                     string ID = "SELECT * FROM MON WHERE TenMon = N'" + cbNameCourse.SelectedItem.ToString() + "' and  UserName='" + checkUser + "'";
@@ -87,18 +113,11 @@ namespace Quiz_System_2018
                     adapter.SelectCommand.ExecuteNonQuery();
                     adapter.Fill(dbtGV);
                     txbIDCourse.Text = dbtGV.Rows[0][0].ToString();
-
-                    //Lấy câu hỏi của môn học đưa lên gridview
-
-                    DataTable dtb = new DataTable();
-                    string loadgrid = "SELECT MaCauHoi as N'Mã câu hỏi', MaMon as N'Mã môn', CauHoi as N'Câu hỏi', SoDapAn as N'Số đáp án' from CAUHOI WHERE MaMon='"+dbtGV.Rows[0][0].ToString()+"'";
-                    adapter = new SqlDataAdapter(loadgrid,conn);
-                    adapter.SelectCommand.ExecuteNonQuery();
-                    adapter.Fill(dtb);
-                    griListQue.DataSource = dtb;
                     conn.Close();
+                    //Lấy câu hỏi của môn học đưa lên gridview
+                    load_grid();
                 }
-                
+
             }
             catch
             {
@@ -114,7 +133,7 @@ namespace Quiz_System_2018
             int count = 0;//Biến đếm số lượng câu hỏi, theo loại câu hỏi
             conn.Open();
             DataTable eaTbd = new DataTable();
-            string eaQues = "SELECT COUNT (*) FROM CAUHOI WHERE Loai = '"+saveId+"'";
+            string eaQues = "SELECT COUNT (*) FROM CAUHOI WHERE Loai = '"+saveId+"'And MaMon='"+txbIDCourse.Text+"'";
             adapter = new SqlDataAdapter(eaQues, conn);
             adapter.Fill(eaTbd);
             count = Convert.ToInt16(eaTbd.Rows[0][0].ToString());
@@ -171,9 +190,60 @@ namespace Quiz_System_2018
 
         private void bntEdit_Click(object sender, EventArgs e)
         {
-            Question = txbAskQues.Text;
-            int number = Convert.ToInt16(cbNumOfAns.Text);
-            Answer newAns = new Answer(Question,number);
+            try
+            {
+                IDQuestion = txbIdQues.Text;
+                int number = Convert.ToInt16(cbNumOfAns.Text);
+                conn.Open();
+                //thêm ID câu hỏi vào DB đáp án
+
+                string addIdQues = "INSERT into DAPAN (MaCauHoi,MaMon) VALUES ('" + IDQuestion + "','"+txbIDCourse.Text+"') ";
+                //MessageBox.Show("Chạy rồi");
+                adapter = new SqlDataAdapter(addIdQues, conn);
+                adapter.SelectCommand.ExecuteNonQuery();
+
+                //thêm dữ liệu nhập vào DB CAUHOI
+                string check_style_level = cbLevelQue.SelectedItem.ToString();
+                string addQues = "";
+                if (check_style_level.Equals("Dễ"))
+                {
+                    addQues = "INSERT into CAUHOI VALUES ('" + IDQuestion + "','" + txbIDCourse.Text + "',N'" + txbAskQues.Text + "','" + cbNumOfAns.Text + "',N'Dê')";
+                }
+                else
+                {
+                    addQues = "INSERT into CAUHOI VALUES ('" + IDQuestion + "','" + txbIDCourse.Text + "',N'" + txbAskQues.Text + "','" + cbNumOfAns.Text + "',N'" + check_style_level + "')";
+                }
+                    //MessageBox.Show(addQues);
+                    adapter = new SqlDataAdapter(addQues, conn);
+                    adapter.SelectCommand.ExecuteNonQuery();
+                    conn.Close();
+                    load_grid();
+                    //MessageBox.Show("chạy");
+                    bntClick.Enabled = false;
+                    //MessageBox.Show("chạy");
+                    Answer newAns = new Answer(IDQuestion, number,txbIDCourse.Text);
+                    this.Hide();
+                    newAns.ShowDialog();
+                    this.Show();
+            }
+            catch
+            {
+                MessageBox.Show("Lỗi nữa kìa anh");
+            }   
+        }
+
+        private void griListQue_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bntAdd_Click(object sender, EventArgs e)
+        {
+            txbIdQues.Text = "";
+            cbLevelQue.Text = "";
+            txbAskQues.Text = "";
+            bntClick.Enabled = true;
+            cbNumOfAns.Text = "";
         }
     }
 }

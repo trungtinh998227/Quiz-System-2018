@@ -18,9 +18,9 @@ namespace Quiz_System_2018
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Login_Form());
             //Application.Run(new Admin());
-            //Application.Run(new Quiz_config_teacher("GV001","TDTGv1"));
+            Application.Run(new Quiz_config_teacher("GV001","TDTGv1"));
             //Application.Run(new newMon(""));
-            Application.Run(new Answer("Câu"));
+            //Application.Run(new Answer("EA0001",4));
         }
     }
 }

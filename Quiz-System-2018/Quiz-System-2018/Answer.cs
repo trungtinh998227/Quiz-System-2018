@@ -117,21 +117,25 @@ namespace Quiz_System_2018{
         {
             try
             {
-                //Cập nhật dữ liệu đáp án vào DB
-                conn.Open();
-                string updateAns = "update DAPAN set DapAn1=N'" + txb1.Text + "',DapAn2=N'" + txb2.Text + "',DapAn3=N'" + txb3.Text + "',DapAn4=N'" + txb4.Text + "',DapAnDung='"+cbTrueAns.SelectedItem.ToString().Trim()+"' WHERE MaCauHoi='" + getidQues.Trim() + "' AND MaMon='" + getidMon.Trim() + "'";
-
-                adapter = new SqlDataAdapter(updateAns, conn);
-                adapter.SelectCommand.ExecuteNonQuery();
-                conn.Close();
-                load_grid();
+                if (cbTrueAns.SelectedItem.ToString().Equals(""))
+                {
+                    MessageBox.Show("Vui lòng chọn đáp án đúng","Thông báo",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    //Cập nhật dữ liệu đáp án vào DB
+                    conn.Open();
+                    string updateAns = "update DAPAN set DapAn1=N'" + txb1.Text + "',DapAn2=N'" + txb2.Text + "',DapAn3=N'" + txb3.Text + "',DapAn4=N'" + txb4.Text + "',DapAnDung='" + cbTrueAns.SelectedItem.ToString().Trim() + "' WHERE MaCauHoi='" + getidQues.Trim() + "' AND MaMon='" + getidMon.Trim() + "'";
+                    adapter = new SqlDataAdapter(updateAns, conn);
+                    adapter.SelectCommand.ExecuteNonQuery();
+                    conn.Close();
+                    load_grid();
+                }
             }
             catch
             {
-                MessageBox.Show("Cập nhật sai gì kìa anh ^^");
+                MessageBox.Show("Vui lòng chọn đáp án đúng", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
-            
-            
         }
     }
 }

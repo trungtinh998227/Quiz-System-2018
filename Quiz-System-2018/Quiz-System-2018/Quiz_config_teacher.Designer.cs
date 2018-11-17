@@ -52,6 +52,12 @@
             this.quizSystemDBDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quizSystemDBDataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.quizSystemDBDataSetBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.quảnLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tạoĐềThiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xemBộĐềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đổiMậtKhẩuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.griListQue)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -59,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.quizSystemDBDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quizSystemDBDataSetBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quizSystemDBDataSetBindingSource2)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -108,7 +115,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.groupBox1.Location = new System.Drawing.Point(16, 16);
+            this.groupBox1.Location = new System.Drawing.Point(16, 25);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(369, 97);
             this.groupBox1.TabIndex = 4;
@@ -121,14 +128,18 @@
             this.griListQue.AllowUserToDeleteRows = false;
             this.griListQue.AllowUserToResizeColumns = false;
             this.griListQue.AllowUserToResizeRows = false;
+            this.griListQue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.griListQue.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.griListQue.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.griListQue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.griListQue.Location = new System.Drawing.Point(391, 16);
+            this.griListQue.Location = new System.Drawing.Point(391, 25);
             this.griListQue.Name = "griListQue";
-            this.griListQue.Size = new System.Drawing.Size(397, 411);
+            this.griListQue.RowHeadersVisible = false;
+            this.griListQue.Size = new System.Drawing.Size(397, 406);
             this.griListQue.TabIndex = 5;
-            this.griListQue.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.griListQue_CellContentClick);
+            this.griListQue.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.griListQue_CellClick);
             // 
             // groupBox2
             // 
@@ -146,7 +157,7 @@
             this.groupBox2.Controls.Add(this.txbIdQues);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(16, 132);
+            this.groupBox2.Location = new System.Drawing.Point(16, 136);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(369, 295);
             this.groupBox2.TabIndex = 6;
@@ -199,15 +210,18 @@
             // 
             // bntEdit
             // 
+            this.bntEdit.Enabled = false;
             this.bntEdit.Location = new System.Drawing.Point(260, 248);
             this.bntEdit.Name = "bntEdit";
             this.bntEdit.Size = new System.Drawing.Size(75, 23);
             this.bntEdit.TabIndex = 5;
             this.bntEdit.Text = "Sửa";
             this.bntEdit.UseVisualStyleBackColor = true;
+            this.bntEdit.Click += new System.EventHandler(this.bntEdit_Click_1);
             // 
             // bntClick
             // 
+            this.bntClick.Enabled = false;
             this.bntClick.Location = new System.Drawing.Point(209, 190);
             this.bntClick.Name = "bntClick";
             this.bntClick.Size = new System.Drawing.Size(75, 23);
@@ -218,15 +232,18 @@
             // 
             // bntDel
             // 
+            this.bntDel.Enabled = false;
             this.bntDel.Location = new System.Drawing.Point(149, 248);
             this.bntDel.Name = "bntDel";
             this.bntDel.Size = new System.Drawing.Size(75, 23);
             this.bntDel.TabIndex = 4;
             this.bntDel.Text = "Xóa";
             this.bntDel.UseVisualStyleBackColor = true;
+            this.bntDel.Click += new System.EventHandler(this.bntDel_Click);
             // 
             // bntAdd
             // 
+            this.bntAdd.Enabled = false;
             this.bntAdd.Location = new System.Drawing.Point(36, 248);
             this.bntAdd.Name = "bntAdd";
             this.bntAdd.Size = new System.Drawing.Size(75, 23);
@@ -291,6 +308,52 @@
             this.quizSystemDBDataSetBindingSource2.DataSource = this.quiz_System_DBDataSet;
             this.quizSystemDBDataSetBindingSource2.Position = 0;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quảnLýToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 25);
+            this.menuStrip1.TabIndex = 7;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // quảnLýToolStripMenuItem
+            // 
+            this.quảnLýToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tạoĐềThiToolStripMenuItem,
+            this.xemBộĐềToolStripMenuItem,
+            this.đổiMậtKhẩuToolStripMenuItem,
+            this.đăngXuấtToolStripMenuItem});
+            this.quảnLýToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Bold);
+            this.quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
+            this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.quảnLýToolStripMenuItem.Text = "Quản lý";
+            // 
+            // tạoĐềThiToolStripMenuItem
+            // 
+            this.tạoĐềThiToolStripMenuItem.Name = "tạoĐềThiToolStripMenuItem";
+            this.tạoĐềThiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tạoĐềThiToolStripMenuItem.Text = "Tạo đề thi";
+            // 
+            // xemBộĐềToolStripMenuItem
+            // 
+            this.xemBộĐềToolStripMenuItem.Name = "xemBộĐềToolStripMenuItem";
+            this.xemBộĐềToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xemBộĐềToolStripMenuItem.Text = "Xem bộ đề";
+            // 
+            // đổiMậtKhẩuToolStripMenuItem
+            // 
+            this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
+            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
+            // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            // 
             // Quiz_config_teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,6 +362,8 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.griListQue);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimizeBox = false;
             this.Name = "Quiz_config_teacher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -313,7 +378,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.quizSystemDBDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quizSystemDBDataSetBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quizSystemDBDataSetBindingSource2)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -342,5 +410,11 @@
         private System.Windows.Forms.BindingSource quizSystemDBDataSetBindingSource2;
         private System.Windows.Forms.ComboBox cbLevelQue;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem quảnLýToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tạoĐềThiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xemBộĐềToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem đổiMậtKhẩuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
     }
 }

@@ -335,12 +335,14 @@
             this.tạoĐềThiToolStripMenuItem.Name = "tạoĐềThiToolStripMenuItem";
             this.tạoĐềThiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tạoĐềThiToolStripMenuItem.Text = "Tạo đề thi";
+            this.tạoĐềThiToolStripMenuItem.Click += new System.EventHandler(this.tạoĐềThiToolStripMenuItem_Click);
             // 
             // xemBộĐềToolStripMenuItem
             // 
             this.xemBộĐềToolStripMenuItem.Name = "xemBộĐềToolStripMenuItem";
             this.xemBộĐềToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.xemBộĐềToolStripMenuItem.Text = "Xem bộ đề";
+            this.xemBộĐềToolStripMenuItem.Click += new System.EventHandler(this.xemBộĐềToolStripMenuItem_Click);
             // 
             // đổiMậtKhẩuToolStripMenuItem
             // 

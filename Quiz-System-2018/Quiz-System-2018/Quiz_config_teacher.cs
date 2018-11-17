@@ -404,5 +404,15 @@ namespace Quiz_System_2018
             }
             
         }
+
+        private void tạoĐềThiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void xemBộĐềToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

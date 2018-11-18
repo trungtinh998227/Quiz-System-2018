@@ -407,7 +407,20 @@ namespace Quiz_System_2018
 
         private void tạoĐềThiToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (txbIDCourse.Text != "")
+                {
+                    Create_Subject newSubject = new Create_Subject(txbIDCourse.Text,cbNameCourse.Text);
+                    this.Hide();
+                    newSubject.ShowDialog();
+                    this.Show();
+                }
+            }
+            catch
+            {
 
+            }
         }
 
         private void xemBộĐềToolStripMenuItem_Click(object sender, EventArgs e)

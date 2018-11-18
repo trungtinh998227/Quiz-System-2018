@@ -31,23 +31,23 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbNameCourse = new System.Windows.Forms.TextBox();
+            this.txbIdCourse = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txbDF = new System.Windows.Forms.TextBox();
+            this.txbMD = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txbEA = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.bntExit = new System.Windows.Forms.Button();
+            this.bntCreate = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.txbNumOfSubj = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -74,8 +74,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txbNameCourse);
+            this.groupBox1.Controls.Add(this.txbIdCourse);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -85,21 +85,21 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             // 
-            // textBox2
+            // txbNameCourse
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(84, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(154, 23);
-            this.textBox2.TabIndex = 2;
+            this.txbNameCourse.Enabled = false;
+            this.txbNameCourse.Location = new System.Drawing.Point(84, 45);
+            this.txbNameCourse.Name = "txbNameCourse";
+            this.txbNameCourse.Size = new System.Drawing.Size(154, 23);
+            this.txbNameCourse.TabIndex = 2;
             // 
-            // textBox1
+            // txbIdCourse
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(84, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 23);
-            this.textBox1.TabIndex = 2;
+            this.txbIdCourse.Enabled = false;
+            this.txbIdCourse.Location = new System.Drawing.Point(84, 19);
+            this.txbIdCourse.Name = "txbIdCourse";
+            this.txbIdCourse.Size = new System.Drawing.Size(154, 23);
+            this.txbIdCourse.TabIndex = 2;
             // 
             // groupBox2
             // 
@@ -107,12 +107,12 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.txbDF);
+            this.groupBox2.Controls.Add(this.txbMD);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.txbEA);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(12, 105);
             this.groupBox2.Name = "groupBox2";
@@ -148,21 +148,19 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "Câu";
             // 
-            // textBox5
+            // txbDF
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(120, 71);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(57, 23);
-            this.textBox5.TabIndex = 2;
+            this.txbDF.Location = new System.Drawing.Point(120, 71);
+            this.txbDF.Name = "txbDF";
+            this.txbDF.Size = new System.Drawing.Size(57, 23);
+            this.txbDF.TabIndex = 2;
             // 
-            // textBox4
+            // txbMD
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(120, 45);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(57, 23);
-            this.textBox4.TabIndex = 2;
+            this.txbMD.Location = new System.Drawing.Point(120, 45);
+            this.txbMD.Name = "txbMD";
+            this.txbMD.Size = new System.Drawing.Size(57, 23);
+            this.txbMD.TabIndex = 2;
             // 
             // label5
             // 
@@ -191,27 +189,45 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Dễ";
             // 
-            // textBox3
+            // txbEA
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(120, 19);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(57, 23);
-            this.textBox3.TabIndex = 2;
+            this.txbEA.Location = new System.Drawing.Point(120, 19);
+            this.txbEA.Name = "txbEA";
+            this.txbEA.Size = new System.Drawing.Size(57, 23);
+            this.txbEA.TabIndex = 2;
             // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.bntExit);
+            this.groupBox3.Controls.Add(this.bntCreate);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.textBox6);
+            this.groupBox3.Controls.Add(this.txbNumOfSubj);
             this.groupBox3.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(289, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 193);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
+            // 
+            // bntExit
+            // 
+            this.bntExit.Location = new System.Drawing.Point(109, 109);
+            this.bntExit.Name = "bntExit";
+            this.bntExit.Size = new System.Drawing.Size(75, 26);
+            this.bntExit.TabIndex = 4;
+            this.bntExit.Text = "Thoát";
+            this.bntExit.UseVisualStyleBackColor = true;
+            // 
+            // bntCreate
+            // 
+            this.bntCreate.Location = new System.Drawing.Point(19, 109);
+            this.bntCreate.Name = "bntCreate";
+            this.bntCreate.Size = new System.Drawing.Size(75, 26);
+            this.bntCreate.TabIndex = 3;
+            this.bntCreate.Text = "Tạo";
+            this.bntCreate.UseVisualStyleBackColor = true;
+            this.bntCreate.Click += new System.EventHandler(this.bntCreate_Click);
             // 
             // label9
             // 
@@ -222,31 +238,12 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Số lượng đề:";
             // 
-            // textBox6
+            // txbNumOfSubj
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(100, 16);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(57, 23);
-            this.textBox6.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(19, 109);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 26);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Tạo";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(109, 109);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 26);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Thoát";
-            this.button2.UseVisualStyleBackColor = true;
+            this.txbNumOfSubj.Location = new System.Drawing.Point(100, 16);
+            this.txbNumOfSubj.Name = "txbNumOfSubj";
+            this.txbNumOfSubj.Size = new System.Drawing.Size(57, 23);
+            this.txbNumOfSubj.TabIndex = 2;
             // 
             // Create_Subject
             // 
@@ -258,7 +255,8 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Create_Subject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tạo bộ đề";
+            this.Text = "Tạo đề";
+            this.Load += new System.EventHandler(this.Create_Subject_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -274,22 +272,22 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbNameCourse;
+        private System.Windows.Forms.TextBox txbIdCourse;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txbDF;
+        private System.Windows.Forms.TextBox txbMD;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txbEA;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Button bntExit;
+        private System.Windows.Forms.Button bntCreate;
+        private System.Windows.Forms.TextBox txbNumOfSubj;
     }
 }

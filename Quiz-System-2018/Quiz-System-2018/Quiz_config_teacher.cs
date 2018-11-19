@@ -419,13 +419,17 @@ namespace Quiz_System_2018
             }
             catch
             {
-
+                MessageBox.Show("Lỗi");
             }
         }
 
         private void xemBộĐềToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Subjects subjects = new Subjects(txbIDCourse.Text,cbNameCourse.Text);
+            this.Hide();
+            subjects.ShowDialog();
+            this.Show();
         }
+
     }
 }

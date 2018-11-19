@@ -218,6 +218,7 @@
             this.bntExit.TabIndex = 4;
             this.bntExit.Text = "Thoát";
             this.bntExit.UseVisualStyleBackColor = true;
+            this.bntExit.Click += new System.EventHandler(this.bntExit_Click);
             // 
             // bntCreate
             // 
@@ -225,7 +226,7 @@
             this.bntCreate.Name = "bntCreate";
             this.bntCreate.Size = new System.Drawing.Size(75, 26);
             this.bntCreate.TabIndex = 3;
-            this.bntCreate.Text = "Tạo";
+            this.bntCreate.Text = "Tạo đề";
             this.bntCreate.UseVisualStyleBackColor = true;
             this.bntCreate.Click += new System.EventHandler(this.bntCreate_Click);
             // 
@@ -249,7 +250,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 217);
+            this.ClientSize = new System.Drawing.Size(503, 220);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

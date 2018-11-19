@@ -30,6 +30,7 @@ namespace Quiz_System_2018
             dataTable.Clear();
             try
             {
+                conn.Open();
                 adapter = new SqlDataAdapter("select LOGIN.UserName, Password, Name, Khoa, Loai from LOGIN, DANHSACH where DANHSACH.UserName=LOGIN.UserName", conn);
                 //Lấy dữ liệu từ database chứa vào trong table
                 adapter.Fill(dataTable);
@@ -49,7 +50,6 @@ namespace Quiz_System_2018
             bntDelete.Enabled = true;
             bntEdit.Enabled = true;
             conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\Quiz_System_DB.mdf;Integrated Security=True;Connect Timeout=30");
-            conn.Open();
             loadGrid();
         }
 
@@ -72,7 +72,7 @@ namespace Quiz_System_2018
             else
             {
                 cbStyle.Enabled = true;
-                bntDelete.Enabled = false;
+                bntDelete.Enabled = true;
             }
 
             txbName.Text = row.Cells[2].Value.ToString();
@@ -132,6 +132,7 @@ namespace Quiz_System_2018
                 string cmdDelete = "delete from LOGIN where UserName='"+txbUsername.Text+"'";
                 adapter = new SqlDataAdapter(cmdDelete,conn);
                 adapter.SelectCommand.ExecuteNonQuery();
+                conn.Close();
                 loadGrid();
             }
             catch
@@ -148,39 +149,34 @@ namespace Quiz_System_2018
                 string newPass = "";
                 if (count > 0 && count < 10 && cbStyle.Text=="Sinh viên")
                 {
-                    conn.Open();
                     newUser = "SV" + "00" + count;
                     newPass = "TDTSv" + count;
                     //thêm dữ liệu mới vào bảng LOGIN trước
                     txbUsername.Text = newUser;
                 }
-                else
+                else if(count > 0 && count < 10 && cbStyle.Text.Equals("Giảng viên"))
                 {
-                    conn.Open();
                     newUser = "GV" + "00" + count;
                     newPass = "TDTGv" + count;
                     //thêm dữ liệu mới vào bảng LOGIN trước
                     txbUsername.Text = newUser;
                 }
-                if(count > 9 && count < 100 && cbStyle.Text == "Sinh viên")
+                else if(count > 9 && count < 100 && cbStyle.Text == "Sinh viên")
                 {
-                    conn.Open();
                     newUser = "SV" + "0" + count;
                     newPass = "TDTSv" + count;
                     //thêm dữ liệu mới vào bảng LOGIN trước
                     txbUsername.Text = newUser;
                 }
-                else
+                else if (count > 9 && count < 100 && cbStyle.Text.Equals("Giảng viên"))
                 {
-                    conn.Open();
                     newUser = "GV" + "0" + count;
                     newPass = "TDTGv" + count;
                     //thêm dữ liệu mới vào bảng LOGIN trước
                     txbUsername.Text = newUser;
                 }
-                if(count > 99 && count < 1000 && cbStyle.Text == "Sinh viên")
+                else if(count > 99 && count < 1000 && cbStyle.Text == "Sinh viên")
                 {
-                    conn.Open();
                     newUser = "SV"+ count;
                     newPass = "TDTSv" + count;
                     //thêm dữ liệu mới vào bảng LOGIN trước
@@ -188,20 +184,23 @@ namespace Quiz_System_2018
                 }
                 else
                 {
-                    conn.Open();
                     newUser = "GV" + count;
                     newPass = "TDTGv" + count;
                     //thêm dữ liệu mới vào bảng LOGIN trước
                     txbUsername.Text = newUser;
                 }
-                    string addNewSV = "insert into LOGIN values ('" + newUser + "','" + newPass + "')";
-                    adapter = new SqlDataAdapter(addNewSV, conn);
-                    adapter.SelectCommand.ExecuteNonQuery();
-                    //Thêm dữ liệu vào bảng DANHSACH
-                    string addNewDS = "insert into DANHSACH values ('" + newUser + "',N'" + txbName.Text + "',N'" + txbKhoa.Text + "',N'" + cbStyle.Text + "')";
-                    adapter = new SqlDataAdapter(addNewDS, conn);
-                    adapter.SelectCommand.ExecuteNonQuery();
-                    loadGrid();
+                conn.Open();
+                string addNewSV = "insert into LOGIN values ('" + newUser + "','" + newPass + "')";
+                adapter = new SqlDataAdapter(addNewSV, conn);
+                adapter.SelectCommand.ExecuteNonQuery();
+                conn.Close();
+                //Thêm dữ liệu vào bảng DANHSACH
+                conn.Open();
+                string addNewDS = "insert into DANHSACH values ('" + newUser + "',N'" + txbName.Text + "',N'" + txbKhoa.Text + "',N'" + cbStyle.Text + "')";
+                adapter = new SqlDataAdapter(addNewDS, conn);
+                adapter.SelectCommand.ExecuteNonQuery();
+                conn.Close();
+                loadGrid();   
             }
             catch
             {

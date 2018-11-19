@@ -80,7 +80,8 @@ namespace Quiz_System_2018
                     this.Hide();
                     Quiz_config_teacher GV = new Quiz_config_teacher(MyUsername,MyPass);
                     GV.ShowDialog();
-                    this.Show();                }
+                    this.Show();
+                }
                 else if (check == 3)
                 {
                     this.Hide();

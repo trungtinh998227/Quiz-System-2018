@@ -18,3 +18,6 @@ C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Re
 C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz_System_2018.Answer.resources
 C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz_System_2018.Create_Subject.resources
 C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz_System_2018.Subjects.resources
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\bin\Release\dje-NE\Quiz-System-2018.resources.dll
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz_System_2018.Login_Form.dje-NE.resources
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\dje-NE\Quiz-System-2018.resources.dll

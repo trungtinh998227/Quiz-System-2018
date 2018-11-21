@@ -31,8 +31,8 @@ namespace Quiz_System_2018
             int numOfMD=0;
             int numOfDF=0;
             int numOfSubject=0;
-
-            if (txbDF.Text==""||txbEA.Text==""||txbMD.Text==""||txbNumOfSubj.Text=="")
+            int Time = 0;
+            if (txbDF.Text==""||txbEA.Text==""||txbMD.Text==""||txbNumOfSubj.Text==""||txbTime.Text=="")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin","Thông báo",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
             }
@@ -44,6 +44,8 @@ namespace Quiz_System_2018
                 numOfDF = Convert.ToInt16(txbDF.Text);
                 //Biến lưu lại số bộ đề
                 numOfSubject = Convert.ToInt16(txbNumOfSubj.Text);
+                //Biến lưu lại thời gian làm bài
+                Time = Convert.ToInt16(txbTime.Text);
             }
             try
             {
@@ -52,14 +54,23 @@ namespace Quiz_System_2018
                     string idsub = Create_Id_Subject();
                     Create_Random_Questions("EA","502041",idsub,numOfEA);//Tạo đề thi vói số lượng câu hỏi dễ
                     Create_Random_Questions("MD", "502041",idsub, numOfMD);//Tạo đề thi vói số lượng câu hỏi Trung bính
-                    Create_Random_Questions("DF", "502041",idsub, numOfDF);//Tạo đề thi vói số lượng câu hỏi Khó   
+                    Create_Random_Questions("DF", "502041",idsub, numOfDF);//Tạo đề thi vói số lượng câu hỏi Khó  
+
+                    //Thêm thời gian thi vào database dùng timer đếm khi sinh viên làm bài
+                    conn.Open();
+                    string addTime = "INSERT INTO THOIGIANTHI VALUES ('" + idsub + "','"+Time+"')";
+                    MessageBox.Show("Lỗi thêm");
+                    adapter = new SqlDataAdapter(addTime, conn);
+                    adapter.SelectCommand.ExecuteNonQuery();
+                    MessageBox.Show("Lỗi thêm time");
+                    conn.Close();
                 }
                 MessageBox.Show("Đã tạo thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             }
             catch
             {
                 MessageBox.Show("Lỗi nữa rồi");
-            }
+            } 
         }
         //Tạo mã đề thi ngẫu nhiên
         private string Create_Id_Subject()

@@ -53,11 +53,21 @@ namespace Quiz_System_2018
             reader.Close();
             conn.Close();
         }
-
+        //Hàm load các mã đề thi lên để xóa
+        private void loadSubject()
+        {
+            Menu_Subject.DropDownItems.Clear();
+            conn.Open();
+            string load = "SELECT DISTINCT MaDeThi FROM DETHI WHERE DETHI.MaMon = '" + txbIDCourse.Text.Trim()+"' ";
+            SqlDataReader read = new SqlCommand(load, conn).ExecuteReader();
+            while (read.Read())
+            {
+                Menu_Subject.DropDownItems.Add(read.GetValue(0).ToString());
+            }
+            conn.Close();
+        }
         private void load_grid()// Load dữ liệu CauHoi lên Griview
         {
-            try
-            {
                 conn.Open();
                 DataTable dtb = new DataTable();
                 string loadgrid = "SELECT MaCauHoi as N'Mã câu hỏi', MaMon as N'Mã môn', CauHoi as N'Câu hỏi', SoDapAn as N'Số đáp án' from CAUHOI WHERE MaMon='" + txbIDCourse.Text + "'";
@@ -66,28 +76,17 @@ namespace Quiz_System_2018
                 adapter.Fill(dtb);
                 griListQue.DataSource = dtb;
                 conn.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Lỗi kết nối rồi kìa anh");
-            }
+                loadSubject();
             
         }
 
         //Form dành cho giảng viên, load đầu tiên khi giảng viên đăng nhập thành công
         private void Quiz_config_teacher_Load(object sender, EventArgs e)
         {
-            conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\Quiz_System_DB.mdf;Integrated Security=True;Connect Timeout=30");
-            try
-            {
+                conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\Quiz_System_DB.mdf;Integrated Security=True;Connect Timeout=30");
                 //Load TENMON từ db vào combobox
                 load_cbNameCourse();
                 bntClick.Enabled = true;
-            }
-            catch
-            {
-                MessageBox.Show("ComboBox Load Error", "Thông báo!");
-            }
         }
 
         private void cbNameCourse_SelectedIndexChanged(object sender, EventArgs e)
@@ -99,8 +98,6 @@ namespace Quiz_System_2018
             bntDel.Enabled = true;
             bntEdit.Enabled = true;
             bntClick.Enabled = true;
-            try
-            {
                 if(cbNameCourse.SelectedItem.ToString().Equals("Other..."))
                 {
                     //Load form thêm MÔN giảng dạy cho giảng viên \
@@ -125,12 +122,6 @@ namespace Quiz_System_2018
                     //Lấy câu hỏi của môn học đưa lên gridview
                     load_grid();
                 }
-
-            }
-            catch
-            {
-                MessageBox.Show("Lỗi rồi kìa anh ơi");
-            }
         }
         //Biến để lưu ID câu hỏi mới và chuyển vào db
         string saveId = "";
@@ -163,11 +154,10 @@ namespace Quiz_System_2018
             }
             conn.Close();
         }
+        //Chọn mức độ khó cho câu hỏi
         private void cbLevelQue_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txbAskQues.Enabled = true;// Cho phép người dùng nhập câu hỏi
-            try //chọn độ khó cho câu hỏi
-            {   
+            txbAskQues.Enabled = true;// Cho phép người dùng nhập câu hỏi  
                 if (cbLevelQue.SelectedItem.ToString().Equals("Dễ") && checkRun)
                 {
                     saveId = "Dê";
@@ -184,11 +174,6 @@ namespace Quiz_System_2018
                     saveId = "Khó";
                     create_NewIdQuestion("DF");
                 }
-            }
-            catch
-            {
-                MessageBox.Show("Lỗi gì rồi anh ơi (=_=), xem lại đi (^.^)!", "Thông báo");
-            }
         }
         private Boolean check_Input()
         {
@@ -203,8 +188,6 @@ namespace Quiz_System_2018
             //MessageBox.Show(""+checkRun);
             if (check_Input() && checkRun)
             {
-                try
-                {
                     IDQuestion = txbIdQues.Text;
                     int number = Convert.ToInt16(cbNumOfAns.Text);
                     conn.Open();
@@ -237,17 +220,13 @@ namespace Quiz_System_2018
                     Answer newAns = new Answer(IDQuestion, number, txbIDCourse.Text);
                     this.Hide();
                     newAns.ShowDialog();
+                    loadSubject();
                     this.Show();
                     txbIdQues.Text = "";
                     cbLevelQue.Text = "";
                     txbAskQues.Text = "";
                     bntClick.Enabled = true;
                     cbNumOfAns.Text = "";
-                }
-                catch
-                {
-                    MessageBox.Show("Lỗi nữa kìa anh");
-                }
             }
             else
             {
@@ -268,9 +247,13 @@ namespace Quiz_System_2018
 
         private void griListQue_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
                 indexRow = e.RowIndex;
+            if (indexRow < 0)
+            {
+                MessageBox.Show("Không thể sửa nội dung này","Thông báo",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+            }
+            else
+            {
                 DataGridViewRow row = griListQue.Rows[indexRow];
                 txbIdQues.Text = row.Cells[0].Value.ToString();//ID câu hỏi
                 getIDQues = txbIdQues.Text;
@@ -297,16 +280,11 @@ namespace Quiz_System_2018
                 conn.Close();
                 checkRun = true;
             }
-            catch
-            {
-                MessageBox.Show("Lỗi rồi, làm lại đi anh");
-            }
+                
         }
 
         private void bntDel_Click(object sender, EventArgs e)
         {
-            try
-            {
                 DialogResult res = MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (res == DialogResult.Yes)
                 {
@@ -321,18 +299,10 @@ namespace Quiz_System_2018
                     cbNumOfAns.Text = "";
                     load_grid();
                 }
-            }
-            catch
-            {
-                MessageBox.Show("Lỗi nhẹ rồi anh ơi, chỉnh lại xíu đi");
-            }
-            
         }
 
         private void bntEdit_Click_1(object sender, EventArgs e)
         {
-            try
-            {
                 if (txbIdQues.Text == "")
                 {
                     MessageBox.Show("Vui lòng chọn câu hỏi muốn chỉnh sửa","Thông báo",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
@@ -396,31 +366,19 @@ namespace Quiz_System_2018
                         bntClick.Enabled = true;
                         cbNumOfAns.Text = "";
                     }
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Lỗi update lại rồi");
-            }
-            
+                }    
         }
 
         private void tạoĐềThiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
                 if (txbIDCourse.Text != "")
                 {
                     Create_Subject newSubject = new Create_Subject(txbIDCourse.Text,cbNameCourse.Text);
                     this.Hide();
                     newSubject.ShowDialog();
+                    loadSubject();
                     this.Show();
                 }
-            }
-            catch
-            {
-                MessageBox.Show("Lỗi");
-            }
         }
 
         private void xemBộĐềToolStripMenuItem_Click(object sender, EventArgs e)
@@ -428,8 +386,20 @@ namespace Quiz_System_2018
             Subjects subjects = new Subjects(txbIDCourse.Text,cbNameCourse.Text);
             this.Hide();
             subjects.ShowDialog();
+            loadSubject();
             this.Show();
         }
 
+        private void Menu_Subject_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            conn.Open();
+            string delSub = "DELETE FROM DETHI WHERE MaDeThi='"+ e.ClickedItem.ToString().Trim()+"'";
+            adapter = new SqlDataAdapter(delSub, conn);
+            adapter.SelectCommand.ExecuteNonQuery();
+            conn.Close();
+            loadSubject();
+            MessageBox.Show("Xóa mã đề " + e.ClickedItem.ToString().Trim() + " thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+        }
+        
     }
 }

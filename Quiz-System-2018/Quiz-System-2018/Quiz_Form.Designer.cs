@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,15 +40,15 @@
             this.rdbA = new System.Windows.Forms.RadioButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.quiz_System_DBDataSet1 = new Quiz_System_2018.Quiz_System_DBDataSet();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quiz_System_DBDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -67,18 +66,10 @@
             this.groupBox1.Text = "Thi trắc nghiệm";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(10, 30);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(554, 150);
-            this.dataGridView1.TabIndex = 6;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(84, 341);
+            this.label4.Location = new System.Drawing.Point(84, 355);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 15);
             this.label4.TabIndex = 5;
@@ -87,7 +78,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(84, 299);
+            this.label3.Location = new System.Drawing.Point(84, 312);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 15);
             this.label3.TabIndex = 5;
@@ -96,7 +87,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(84, 259);
+            this.label2.Location = new System.Drawing.Point(84, 271);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 5;
@@ -105,7 +96,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(84, 220);
+            this.label1.Location = new System.Drawing.Point(84, 230);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 15);
             this.label1.TabIndex = 5;
@@ -114,7 +105,7 @@
             // rdbD
             // 
             this.rdbD.AutoSize = true;
-            this.rdbD.Location = new System.Drawing.Point(44, 339);
+            this.rdbD.Location = new System.Drawing.Point(44, 353);
             this.rdbD.Name = "rdbD";
             this.rdbD.Size = new System.Drawing.Size(34, 19);
             this.rdbD.TabIndex = 4;
@@ -125,7 +116,7 @@
             // rdbC
             // 
             this.rdbC.AutoSize = true;
-            this.rdbC.Location = new System.Drawing.Point(44, 297);
+            this.rdbC.Location = new System.Drawing.Point(44, 310);
             this.rdbC.Name = "rdbC";
             this.rdbC.Size = new System.Drawing.Size(34, 19);
             this.rdbC.TabIndex = 3;
@@ -136,7 +127,7 @@
             // rdbB
             // 
             this.rdbB.AutoSize = true;
-            this.rdbB.Location = new System.Drawing.Point(44, 257);
+            this.rdbB.Location = new System.Drawing.Point(44, 269);
             this.rdbB.Name = "rdbB";
             this.rdbB.Size = new System.Drawing.Size(34, 19);
             this.rdbB.TabIndex = 2;
@@ -147,7 +138,7 @@
             // rdbA
             // 
             this.rdbA.AutoSize = true;
-            this.rdbA.Location = new System.Drawing.Point(44, 218);
+            this.rdbA.Location = new System.Drawing.Point(44, 228);
             this.rdbA.Name = "rdbA";
             this.rdbA.Size = new System.Drawing.Size(34, 19);
             this.rdbA.TabIndex = 1;
@@ -166,6 +157,14 @@
             this.quiz_System_DBDataSet1.DataSetName = "Quiz_System_DBDataSet";
             this.quiz_System_DBDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(6, 21);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(562, 191);
+            this.textBox1.TabIndex = 6;
+            // 
             // Quiz_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,7 +176,6 @@
             this.Load += new System.EventHandler(this.Quiz_Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quiz_System_DBDataSet1)).EndInit();
             this.ResumeLayout(false);
 
@@ -194,8 +192,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rdbA;
-        private System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.Timer timer1;
         private Quiz_System_DBDataSet quiz_System_DBDataSet1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

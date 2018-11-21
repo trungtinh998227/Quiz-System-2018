@@ -59,6 +59,7 @@
             this.UserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đổiMậtKhẩuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_Subject = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.griListQue)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -324,7 +325,8 @@
             // 
             this.quảnLýToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tạoĐềThiToolStripMenuItem,
-            this.xemBộĐềToolStripMenuItem});
+            this.xemBộĐềToolStripMenuItem,
+            this.Menu_Subject});
             this.quảnLýToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.quảnLýToolStripMenuItem.Name = "quảnLýToolStripMenuItem";
             this.quảnLýToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
@@ -358,14 +360,21 @@
             // đổiMậtKhẩuToolStripMenuItem
             // 
             this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
             // 
             // đăngXuấtToolStripMenuItem
             // 
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            // 
+            // Menu_Subject
+            // 
+            this.Menu_Subject.Name = "Menu_Subject";
+            this.Menu_Subject.Size = new System.Drawing.Size(180, 22);
+            this.Menu_Subject.Text = "Xóa bộ đề";
+            this.Menu_Subject.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Menu_Subject_DropDownItemClicked);
             // 
             // Quiz_config_teacher
             // 
@@ -430,5 +439,6 @@
         private System.Windows.Forms.ToolStripMenuItem UserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đổiMậtKhẩuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đăngXuấtToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Menu_Subject;
     }
 }

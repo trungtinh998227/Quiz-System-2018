@@ -85,7 +85,7 @@ namespace Quiz_System_2018
                 else if (check == 3)
                 {
                     this.Hide();
-                    Quiz_config_student SV = new Quiz_config_student();
+                    Quiz_config_student SV = new Quiz_config_student(MyUsername);
                     SV.ShowDialog();
                     this.Show();
                 }

@@ -62,7 +62,9 @@
             this.gridAnswer.BackgroundColor = System.Drawing.Color.Azure;
             this.gridAnswer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridAnswer.Location = new System.Drawing.Point(254, 31);
+            this.gridAnswer.MultiSelect = false;
             this.gridAnswer.Name = "gridAnswer";
+            this.gridAnswer.ReadOnly = true;
             this.gridAnswer.RowHeadersVisible = false;
             this.gridAnswer.Size = new System.Drawing.Size(574, 133);
             this.gridAnswer.TabIndex = 2;
@@ -79,6 +81,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.AutoSize = true;
             this.groupBox1.BackColor = System.Drawing.Color.DarkCyan;
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label2);
@@ -271,6 +274,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 377);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Answer";
             this.Text = "Đáp án";
             this.Load += new System.EventHandler(this.Answer_Load);
@@ -280,6 +285,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

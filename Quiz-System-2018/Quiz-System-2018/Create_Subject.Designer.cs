@@ -44,10 +44,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txbEA = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.bntExit = new System.Windows.Forms.Button();
             this.bntCreate = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.txbTime = new System.Windows.Forms.TextBox();
             this.txbNumOfSubj = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -199,9 +202,12 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.bntExit);
             this.groupBox3.Controls.Add(this.bntCreate);
             this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.txbTime);
             this.groupBox3.Controls.Add(this.txbNumOfSubj);
             this.groupBox3.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(289, 12);
@@ -209,6 +215,15 @@
             this.groupBox3.Size = new System.Drawing.Size(200, 193);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(20, 61);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(71, 17);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Thời gian:";
             // 
             // bntExit
             // 
@@ -233,18 +248,34 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(9, 19);
+            this.label9.Location = new System.Drawing.Point(6, 19);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(85, 17);
             this.label9.TabIndex = 0;
             this.label9.Text = "Số lượng đề:";
             // 
+            // txbTime
+            // 
+            this.txbTime.Location = new System.Drawing.Point(97, 58);
+            this.txbTime.Name = "txbTime";
+            this.txbTime.Size = new System.Drawing.Size(57, 23);
+            this.txbTime.TabIndex = 2;
+            // 
             // txbNumOfSubj
             // 
-            this.txbNumOfSubj.Location = new System.Drawing.Point(100, 16);
+            this.txbNumOfSubj.Location = new System.Drawing.Point(97, 16);
             this.txbNumOfSubj.Name = "txbNumOfSubj";
             this.txbNumOfSubj.Size = new System.Drawing.Size(57, 23);
             this.txbNumOfSubj.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(157, 62);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(36, 17);
+            this.label11.TabIndex = 5;
+            this.label11.Text = "phút";
             // 
             // Create_Subject
             // 
@@ -254,6 +285,8 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Create_Subject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tạo đề";
@@ -290,5 +323,8 @@
         private System.Windows.Forms.Button bntExit;
         private System.Windows.Forms.Button bntCreate;
         private System.Windows.Forms.TextBox txbNumOfSubj;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txbTime;
+        private System.Windows.Forms.Label label11;
     }
 }

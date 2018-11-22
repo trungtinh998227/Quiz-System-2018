@@ -397,9 +397,13 @@ namespace Quiz_System_2018
             adapter = new SqlDataAdapter(delSub, conn);
             adapter.SelectCommand.ExecuteNonQuery();
             conn.Close();
+            conn.Open();
+            string delete = "DELETE FROM THOIGIANTHI WHERE MaDeThi='" + e.ClickedItem.ToString().Trim() + "'";
+            adapter = new SqlDataAdapter(delete, conn);
+            adapter.SelectCommand.ExecuteNonQuery();
+            conn.Close();
             loadSubject();
             MessageBox.Show("Xóa mã đề " + e.ClickedItem.ToString().Trim() + " thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
         }
-        
     }
 }

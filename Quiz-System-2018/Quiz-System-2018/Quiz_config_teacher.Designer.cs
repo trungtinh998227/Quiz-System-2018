@@ -56,10 +56,10 @@
             this.quảnLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tạoĐềThiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xemBộĐềToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu_Subject = new System.Windows.Forms.ToolStripMenuItem();
             this.UserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đổiMậtKhẩuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Menu_Subject = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.griListQue)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -346,6 +346,13 @@
             this.xemBộĐềToolStripMenuItem.Text = "Xem bộ đề";
             this.xemBộĐềToolStripMenuItem.Click += new System.EventHandler(this.xemBộĐềToolStripMenuItem_Click);
             // 
+            // Menu_Subject
+            // 
+            this.Menu_Subject.Name = "Menu_Subject";
+            this.Menu_Subject.Size = new System.Drawing.Size(180, 22);
+            this.Menu_Subject.Text = "Xóa bộ đề";
+            this.Menu_Subject.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Menu_Subject_DropDownItemClicked);
+            // 
             // UserToolStripMenuItem
             // 
             this.UserToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -368,13 +375,6 @@
             this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
             this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
-            // 
-            // Menu_Subject
-            // 
-            this.Menu_Subject.Name = "Menu_Subject";
-            this.Menu_Subject.Size = new System.Drawing.Size(180, 22);
-            this.Menu_Subject.Text = "Xóa bộ đề";
-            this.Menu_Subject.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Menu_Subject_DropDownItemClicked);
             // 
             // Quiz_config_teacher
             // 

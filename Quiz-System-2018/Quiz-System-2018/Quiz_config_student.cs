@@ -50,7 +50,7 @@ namespace Quiz_System_2018
             SqlDataReader read = new SqlCommand(check, conn).ExecuteReader();
             if (read.Read())
             {
-                Quiz_Form QF = new Quiz_Form();
+                Quiz_Form QF = new Quiz_Form(txbIDcourse.Text);
                 this.Hide();
                 QF.ShowDialog();
                 this.Show();

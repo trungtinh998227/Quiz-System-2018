@@ -21,8 +21,8 @@ namespace Quiz_System_2018
             //Application.Run(new Quiz_config_teacher("GV001","TDTGv1"));
             //Application.Run(new newMon("GV001", "TDTGv1"));
             //Application.Run(new Answer("EA0001",4,"502042"));
-            Application.Run(new Quiz_config_student("SV001"));
-            //Application.Run(new Quiz_Form());
+            //Application.Run(new Quiz_config_student("SV001"));
+            Application.Run(new Quiz_Form("502041"));
         }
     }
 }

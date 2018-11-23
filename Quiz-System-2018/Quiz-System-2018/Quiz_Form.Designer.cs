@@ -43,7 +43,11 @@
             this.bntNext = new System.Windows.Forms.Button();
             this.bntRevious = new System.Windows.Forms.Button();
             this.g = new System.Windows.Forms.GroupBox();
-            this.txbTimer = new System.Windows.Forms.TextBox();
+            this.lbMinute = new System.Windows.Forms.Label();
+            this.lbSecond = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lbHour = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer = new System.Windows.Forms.Timer(this.components);
@@ -224,7 +228,11 @@
             // g
             // 
             this.g.BackColor = System.Drawing.Color.Cornsilk;
-            this.g.Controls.Add(this.txbTimer);
+            this.g.Controls.Add(this.lbMinute);
+            this.g.Controls.Add(this.lbSecond);
+            this.g.Controls.Add(this.label7);
+            this.g.Controls.Add(this.label5);
+            this.g.Controls.Add(this.lbHour);
             this.g.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.g.ForeColor = System.Drawing.Color.Blue;
             this.g.Location = new System.Drawing.Point(9, 12);
@@ -234,21 +242,60 @@
             this.g.TabStop = false;
             this.g.Text = "Thời gian làm bài:";
             // 
-            // txbTimer
+            // lbMinute
             // 
-            this.txbTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbTimer.BackColor = System.Drawing.Color.Cornsilk;
-            this.txbTimer.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txbTimer.Font = new System.Drawing.Font("Times New Roman", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTimer.ForeColor = System.Drawing.Color.Red;
-            this.txbTimer.Location = new System.Drawing.Point(6, 23);
-            this.txbTimer.Name = "txbTimer";
-            this.txbTimer.Size = new System.Drawing.Size(203, 43);
-            this.txbTimer.TabIndex = 0;
-            this.txbTimer.Text = "00:00:00";
-            this.txbTimer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lbMinute.AutoSize = true;
+            this.lbMinute.Font = new System.Drawing.Font("Times New Roman", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbMinute.ForeColor = System.Drawing.Color.Red;
+            this.lbMinute.Location = new System.Drawing.Point(83, 28);
+            this.lbMinute.Name = "lbMinute";
+            this.lbMinute.Size = new System.Drawing.Size(53, 40);
+            this.lbMinute.TabIndex = 0;
+            this.lbMinute.Text = "00";
+            // 
+            // lbSecond
+            // 
+            this.lbSecond.AutoSize = true;
+            this.lbSecond.Font = new System.Drawing.Font("Times New Roman", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSecond.ForeColor = System.Drawing.Color.Red;
+            this.lbSecond.Location = new System.Drawing.Point(153, 28);
+            this.lbSecond.Name = "lbSecond";
+            this.lbSecond.Size = new System.Drawing.Size(53, 40);
+            this.lbSecond.TabIndex = 0;
+            this.lbSecond.Text = "00";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(131, 28);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 40);
+            this.label7.TabIndex = 0;
+            this.label7.Text = ":";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(59, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 40);
+            this.label5.TabIndex = 0;
+            this.label5.Text = ":";
+            // 
+            // lbHour
+            // 
+            this.lbHour.AutoSize = true;
+            this.lbHour.Font = new System.Drawing.Font("Times New Roman", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHour.ForeColor = System.Drawing.Color.Red;
+            this.lbHour.Location = new System.Drawing.Point(15, 28);
+            this.lbHour.Name = "lbHour";
+            this.lbHour.Size = new System.Drawing.Size(53, 40);
+            this.lbHour.TabIndex = 0;
+            this.lbHour.Text = "00";
             // 
             // groupBox2
             // 
@@ -274,6 +321,7 @@
             // 
             this.timer.Enabled = true;
             this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick_1);
             // 
             // Quiz_Form
             // 
@@ -319,8 +367,12 @@
         private System.Windows.Forms.Button bntRevious;
         private System.Windows.Forms.GroupBox g;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txbTimer;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbMinute;
+        private System.Windows.Forms.Label lbSecond;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbHour;
         private System.Windows.Forms.Timer timer;
     }
 }

@@ -352,6 +352,7 @@
             this.Menu_Subject.Size = new System.Drawing.Size(180, 22);
             this.Menu_Subject.Text = "Xóa bộ đề";
             this.Menu_Subject.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.Menu_Subject_DropDownItemClicked);
+            this.Menu_Subject.Click += new System.EventHandler(this.Menu_Subject_Click);
             // 
             // UserToolStripMenuItem
             // 

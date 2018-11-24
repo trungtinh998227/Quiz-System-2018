@@ -49,12 +49,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lbHour = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.Panel_1 = new System.Windows.Forms.Panel();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quiz_System_DBDataSet1)).BeginInit();
             this.g.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.Panel_1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -214,6 +219,7 @@
             this.bntNext.TabIndex = 1;
             this.bntNext.Text = "Câu tiếp";
             this.bntNext.UseVisualStyleBackColor = true;
+            this.bntNext.Click += new System.EventHandler(this.bntNext_Click);
             // 
             // bntRevious
             // 
@@ -224,6 +230,7 @@
             this.bntRevious.TabIndex = 1;
             this.bntRevious.Text = "Câu trước";
             this.bntRevious.UseVisualStyleBackColor = true;
+            this.bntRevious.Click += new System.EventHandler(this.bntRevious_Click);
             // 
             // g
             // 
@@ -299,7 +306,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.panel1);
+            this.groupBox2.Controls.Add(this.Panel_1);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.Blue;
             this.groupBox2.Location = new System.Drawing.Point(9, 103);
@@ -309,19 +316,59 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Câu hỏi:";
             // 
-            // panel1
+            // Panel_1
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Location = new System.Drawing.Point(6, 19);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(203, 269);
-            this.panel1.TabIndex = 0;
+            this.Panel_1.AutoScroll = true;
+            this.Panel_1.Controls.Add(this.button4);
+            this.Panel_1.Controls.Add(this.button3);
+            this.Panel_1.Controls.Add(this.button2);
+            this.Panel_1.Controls.Add(this.button1);
+            this.Panel_1.Location = new System.Drawing.Point(6, 19);
+            this.Panel_1.Name = "Panel_1";
+            this.Panel_1.Size = new System.Drawing.Size(203, 269);
+            this.Panel_1.TabIndex = 0;
             // 
             // timer
             // 
             this.timer.Enabled = true;
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick_1);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(24, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(35, 28);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(65, 15);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(35, 28);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "1";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(106, 15);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(35, 28);
+            this.button3.TabIndex = 0;
+            this.button3.Text = "1";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(24, 49);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(35, 28);
+            this.button4.TabIndex = 0;
+            this.button4.Text = "1";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // Quiz_Form
             // 
@@ -345,6 +392,7 @@
             this.g.ResumeLayout(false);
             this.g.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.Panel_1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,12 +415,16 @@
         private System.Windows.Forms.Button bntRevious;
         private System.Windows.Forms.GroupBox g;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel Panel_1;
         private System.Windows.Forms.Label lbMinute;
         private System.Windows.Forms.Label lbSecond;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbHour;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }

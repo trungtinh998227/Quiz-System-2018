@@ -116,6 +116,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Quiz_System_DBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Result.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Result.Designer.cs">
+      <DependentUpon>Result.cs</DependentUpon>
+    </Compile>
     <Compile Include="Subjects.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Quiz_Form.resx">
       <DependentUpon>Quiz_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Result.resx">
+      <DependentUpon>Result.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Subjects.resx">
       <DependentUpon>Subjects.cs</DependentUpon>

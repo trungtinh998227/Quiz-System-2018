@@ -405,5 +405,10 @@ namespace Quiz_System_2018
             loadSubject();
             MessageBox.Show("Xóa mã đề " + e.ClickedItem.ToString().Trim() + " thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
         }
+
+        private void Menu_Subject_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

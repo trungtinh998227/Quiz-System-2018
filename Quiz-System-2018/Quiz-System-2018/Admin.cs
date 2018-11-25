@@ -15,7 +15,7 @@ namespace Quiz_System_2018
     {
         private SqlConnection conn;
         private SqlDataAdapter adapter;
-        private SqlCommandBuilder builder;
+        
         private DataTable dataTable;
         //đếm số lượng trong list để tạo thêm dữ liệu vào db
         int count=0;
@@ -31,7 +31,7 @@ namespace Quiz_System_2018
             try
             {
                 conn.Open();
-                adapter = new SqlDataAdapter("select LOGIN.UserName, Password, Name, Khoa, Loai from LOGIN, DANHSACH where DANHSACH.UserName=LOGIN.UserName", conn);
+                adapter = new SqlDataAdapter("select LOGIN.UserName as N'Tên đăng nhập', Password as N'Mật khẩu', Name as N'Họ & tên', Khoa, Loai as N'Loại' from LOGIN, DANHSACH where DANHSACH.UserName=LOGIN.UserName", conn);
                 //Lấy dữ liệu từ database chứa vào trong table
                 adapter.Fill(dataTable);
                 //Đưa dữ liệu từ table lên gridview
@@ -61,23 +61,30 @@ namespace Quiz_System_2018
         private void Gridview1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             indexRow = e.RowIndex;
-            DataGridViewRow row = Gridview1.Rows[indexRow];
-            txbUsername.Text = row.Cells[0].Value.ToString();
-            // Không cho phép chỉnh sửa Style của admin
-            if (txbUsername.Text == "Admin")
+            if (indexRow >= 0)
             {
-                cbStyle.Enabled = false;
-                bntDelete.Enabled = false;
+                DataGridViewRow row = Gridview1.Rows[indexRow];
+                txbUsername.Text = row.Cells[0].Value.ToString();
+                // Không cho phép chỉnh sửa Style của admin
+                if (txbUsername.Text == "Admin")
+                {
+                    cbStyle.Enabled = false;
+                    bntDelete.Enabled = false;
+                }
+                else
+                {
+                    cbStyle.Enabled = true;
+                    bntDelete.Enabled = true;
+                }
+
+                txbName.Text = row.Cells[2].Value.ToString();
+                cbStyle.Text = row.Cells[4].Value.ToString();
+                txbKhoa.Text = row.Cells[3].Value.ToString();
             }
             else
             {
-                cbStyle.Enabled = true;
-                bntDelete.Enabled = true;
+                MessageBox.Show("Thông tin không chính xác.Vui lòng chọn lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            txbName.Text = row.Cells[2].Value.ToString();
-            cbStyle.Text = row.Cells[4].Value.ToString();
-            txbKhoa.Text = row.Cells[3].Value.ToString();
             
         }
 

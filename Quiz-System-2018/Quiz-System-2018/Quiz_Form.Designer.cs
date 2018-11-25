@@ -51,15 +51,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Panel_1 = new System.Windows.Forms.Panel();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quiz_System_DBDataSet1)).BeginInit();
             this.g.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.Panel_1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -81,7 +76,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(231, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(568, 391);
+            this.groupBox1.Size = new System.Drawing.Size(570, 391);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thi trắc nghiệm";
@@ -98,7 +93,7 @@
             this.txbQuestion.Multiline = true;
             this.txbQuestion.Name = "txbQuestion";
             this.txbQuestion.ReadOnly = true;
-            this.txbQuestion.Size = new System.Drawing.Size(549, 198);
+            this.txbQuestion.Size = new System.Drawing.Size(551, 198);
             this.txbQuestion.TabIndex = 6;
             // 
             // label4
@@ -159,7 +154,6 @@
             this.rdbD.Name = "rdbD";
             this.rdbD.Size = new System.Drawing.Size(34, 19);
             this.rdbD.TabIndex = 4;
-            this.rdbD.TabStop = true;
             this.rdbD.Text = "D";
             this.rdbD.UseVisualStyleBackColor = true;
             // 
@@ -173,7 +167,6 @@
             this.rdbC.Name = "rdbC";
             this.rdbC.Size = new System.Drawing.Size(34, 19);
             this.rdbC.TabIndex = 3;
-            this.rdbC.TabStop = true;
             this.rdbC.Text = "C";
             this.rdbC.UseVisualStyleBackColor = true;
             // 
@@ -187,7 +180,6 @@
             this.rdbB.Name = "rdbB";
             this.rdbB.Size = new System.Drawing.Size(34, 19);
             this.rdbB.TabIndex = 2;
-            this.rdbB.TabStop = true;
             this.rdbB.Text = "B";
             this.rdbB.UseVisualStyleBackColor = true;
             // 
@@ -201,7 +193,6 @@
             this.rdbA.Name = "rdbA";
             this.rdbA.Size = new System.Drawing.Size(34, 19);
             this.rdbA.TabIndex = 1;
-            this.rdbA.TabStop = true;
             this.rdbA.Text = "A";
             this.rdbA.UseVisualStyleBackColor = true;
             // 
@@ -319,10 +310,6 @@
             // Panel_1
             // 
             this.Panel_1.AutoScroll = true;
-            this.Panel_1.Controls.Add(this.button4);
-            this.Panel_1.Controls.Add(this.button3);
-            this.Panel_1.Controls.Add(this.button2);
-            this.Panel_1.Controls.Add(this.button1);
             this.Panel_1.Location = new System.Drawing.Point(6, 19);
             this.Panel_1.Name = "Panel_1";
             this.Panel_1.Size = new System.Drawing.Size(203, 269);
@@ -334,47 +321,11 @@
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick_1);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(24, 15);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 28);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(65, 15);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(35, 28);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "1";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(106, 15);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(35, 28);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "1";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(24, 49);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(35, 28);
-            this.button4.TabIndex = 0;
-            this.button4.Text = "1";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // Quiz_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(811, 447);
+            this.ClientSize = new System.Drawing.Size(813, 447);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.g);
             this.Controls.Add(this.bntRevious);
@@ -392,7 +343,6 @@
             this.g.ResumeLayout(false);
             this.g.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.Panel_1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -422,9 +372,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbHour;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
     }
 }

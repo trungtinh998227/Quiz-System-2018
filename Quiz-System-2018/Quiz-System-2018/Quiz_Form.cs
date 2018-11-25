@@ -113,6 +113,7 @@ namespace Quiz_System_2018
 
         private void bntRevious_Click(object sender, EventArgs e)
         {
+            load(status);
             if (status == 0)
             {
                 bntRevious.Enabled = false;
@@ -126,12 +127,73 @@ namespace Quiz_System_2018
             
         }
 
+        private void load(int stt)
+        {
+            //Kiểm tra câu hỏi đã trả lời hay chưa
+            conn.Open();
+            adapter = new SqlDataAdapter("SELECT DapAn,MaCauHoi FROM KETQUA WHERE MaDe='" + IdSub + "'", conn);
+            adapter.SelectCommand.ExecuteNonQuery();
+            DataTable dtb = new DataTable();
+            adapter.Fill(dtb);
+            string rs = "";
+            if (dtb.Rows[stt][0].ToString() == "")
+            {
+                if (rdbA.Checked == true)
+                {
+                    rs = "Đáp án 1";
+                }
+                else if (rdbB.Checked == true)
+                {
+                    rs = "Đáp án 2";
+                }
+                else if (rdbC.Checked == true)
+                {
+                    rs = "Đáp án 3";
+                }
+                else if (rdbD.Checked==true)
+                {
+                    rs = "Đáp án 4";
+                }
+
+            }
+            else
+            {
+                rs = dtb.Rows[stt][0].ToString();
+                if (rs.Equals("Đáp án 1", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    rdbA.Checked = true;
+                }
+                else if (rs.Equals("Đáp án 2", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    rdbB.Checked = true;
+                }
+                else if (rs.Equals("Đáp án 3", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    rdbC.Checked = true;
+                }
+                else
+                {
+                    rdbD.Checked = true;
+                }
+            }
+            adapter = new SqlDataAdapter("UPDATE KETQUA SET DapAn=N'" + rs + "'WHERE MaCauHoi='" + dtb.Rows[status][1].ToString() + "'", conn);
+            adapter.SelectCommand.ExecuteNonQuery();
+            conn.Close();
+            
+        }
+
         private void bntNext_Click(object sender, EventArgs e)
         {
+            load(status);
+            rdbA.Checked = false;
+            rdbB.Checked = false;
+            rdbC.Checked = false;
+            rdbD.Checked = false;
             bntRevious.Enabled = true;
             if (status == limit-1)
             {
                 MessageBox.Show("Bạn có muốn chuyển đến trang nộp bài","Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+
             }
             else
             {
@@ -144,13 +206,17 @@ namespace Quiz_System_2018
 
         private void Quiz_Form_Load(object sender, EventArgs e)
         {
+            
+
             int index = 0;
             timer.Start();
             List<string> list = new List<string>();
             conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\Quiz_System_DB.mdf;Integrated Security=True;Connect Timeout=30");
 
-            //Lấy mã đề thi ngãu nhiêns
+            //Lấy mã đề thi ngãu nhiên
             conn.Open();
+            adapter = new SqlDataAdapter("DELETE FROM KETQUA",conn);
+            adapter.SelectCommand.ExecuteNonQuery();
             string getIdSub = "SELECT DISTINCT MaDeThi FROM DETHI WHERE MaMon='"+IdCourse+"'";
             SqlDataReader rd = new SqlCommand(getIdSub, conn).ExecuteReader();
             while (rd.Read())
@@ -159,10 +225,32 @@ namespace Quiz_System_2018
             }
             rd.Close();
             conn.Close();
+
             //Lấy ngẫu nhiên 1 đề từ bộ đề
             Random rn = new Random();
             index = rn.Next(list.Count);
             IdSub = list[index];
+
+            //Đưa toàn bộ câu hỏi của đề thi nào DB KETQUA
+            List<string> list_Ques = new List<string>();
+            conn.Open();
+            string putQues = "SELECT MaCaUHoi FROM DETHI WHERE MaDeThi='" + IdSub + "'";
+            SqlDataReader dr = new SqlCommand(putQues, conn).ExecuteReader();
+            while (dr.Read())
+            {
+                list_Ques.Add(dr.GetValue(0).ToString());
+            }
+            conn.Close();
+            //Chuyển mã câu hỏi vào DB
+            conn.Open();
+            for(int i = 0; i < list_Ques.Count; i++)
+            {
+                //
+                adapter = new SqlDataAdapter("INSERT INTO KETQUA (MaDe,MaCaUHoi) VALUES('" + IdSub + "','" + list_Ques[i] + "')", conn);
+                adapter.SelectCommand.ExecuteNonQuery();
+            }  
+            conn.Close();
+
             conn.Open();
             string getTime = "SELECT Time FROM THOIGIANTHI WHERE MaDeThi='"+IdSub+"'";
             SqlDataReader read = new SqlCommand(getTime, conn).ExecuteReader();
@@ -174,21 +262,18 @@ namespace Quiz_System_2018
             conn.Close();
             txbQuestion.Text = Load_Ques(IdSub, status);
             Load_Ans(IdSub, status);
+
             conn.Open();
             string counter = "SELECT COUNT(*) FROM DETHI WHERE MaDeThi='"+IdSub+"'";
             SqlDataReader r= new SqlCommand(counter, conn).ExecuteReader();
             if (r.Read())
             {
                 int NumOfQues = Convert.ToInt32(r.GetValue(0).ToString());
-                MessageBox.Show("" + NumOfQues);
-                //Tạo danh sách các button
-                //List<Button> button = new List<Button>(NumOfQues);
                 Panel_1.Controls.Clear();
                 int x = 24, y = 0;
                 int break_line = 0;
                 for (int i = 0; i < NumOfQues; i++)
                 {
-                    //int x=16, y=18;
                     if (break_line % 4 == 0)
                     {
                         y = y + 34;
@@ -208,13 +293,12 @@ namespace Quiz_System_2018
             conn.Close();
 
         }
-
         private void Ans_click(object sender, EventArgs e)
         {
             Button bnt = sender as Button;
             Load_Ans(IdSub,Convert.ToInt32(bnt.Name.ToString()));
             txbQuestion.Text = Load_Ques(IdSub, Convert.ToInt32(bnt.Name.ToString()));
-            bnt.BackColor = Color.AliceBlue;
+            load(Convert.ToInt32(bnt.Name.ToString()));
         }
 
         private void Standardized_Time(int time)

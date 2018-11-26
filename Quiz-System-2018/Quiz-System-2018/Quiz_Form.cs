@@ -131,7 +131,7 @@ namespace Quiz_System_2018
         {
             //Kiểm tra câu hỏi đã trả lời hay chưa
             conn.Open();
-            adapter = new SqlDataAdapter("SELECT DapAn,MaCauHoi FROM KETQUA WHERE MaDe='" + IdSub + "'", conn);
+            adapter = new SqlDataAdapter("SELECT DapAn,MaCauHoi FROM KETQUA WHERE MaDeThi='" + IdSub + "'", conn);
             adapter.SelectCommand.ExecuteNonQuery();
             DataTable dtb = new DataTable();
             adapter.Fill(dtb);
@@ -185,10 +185,7 @@ namespace Quiz_System_2018
         private void bntNext_Click(object sender, EventArgs e)
         {
             load(status);
-            rdbA.Checked = false;
-            rdbB.Checked = false;
-            rdbC.Checked = false;
-            rdbD.Checked = false;
+            
             bntRevious.Enabled = true;
             if (status == limit-1)
             {
@@ -201,7 +198,11 @@ namespace Quiz_System_2018
                 txbQuestion.Text = Load_Ques(IdSub, status);
                 Load_Ans(IdSub, status);
             }
-            
+            rdbA.Checked = false;
+            rdbB.Checked = false;
+            rdbC.Checked = false;
+            rdbD.Checked = false;
+
         }
 
         private void Quiz_Form_Load(object sender, EventArgs e)
@@ -246,7 +247,7 @@ namespace Quiz_System_2018
             for(int i = 0; i < list_Ques.Count; i++)
             {
                 //
-                adapter = new SqlDataAdapter("INSERT INTO KETQUA (MaDe,MaCaUHoi) VALUES('" + IdSub + "','" + list_Ques[i] + "')", conn);
+                adapter = new SqlDataAdapter("INSERT INTO KETQUA (MaDeThi,MaCaUHoi) VALUES('" + IdSub + "','" + list_Ques[i] + "')", conn);
                 adapter.SelectCommand.ExecuteNonQuery();
             }  
             conn.Close();
@@ -298,6 +299,10 @@ namespace Quiz_System_2018
             Button bnt = sender as Button;
             Load_Ans(IdSub,Convert.ToInt32(bnt.Name.ToString()));
             txbQuestion.Text = Load_Ques(IdSub, Convert.ToInt32(bnt.Name.ToString()));
+            rdbA.Checked = false;
+            rdbB.Checked = false;
+            rdbC.Checked = false;
+            rdbD.Checked = false;
             load(Convert.ToInt32(bnt.Name.ToString()));
         }
 

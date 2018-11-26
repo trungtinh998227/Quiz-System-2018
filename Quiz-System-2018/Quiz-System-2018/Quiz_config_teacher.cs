@@ -158,7 +158,7 @@ namespace Quiz_System_2018
         private void cbLevelQue_SelectedIndexChanged(object sender, EventArgs e)
         {
             txbAskQues.Enabled = true;// Cho phép người dùng nhập câu hỏi  
-                if (cbLevelQue.SelectedItem.ToString().Equals("Dễ") && checkRun)
+            if (cbLevelQue.SelectedItem.ToString().Equals("Dễ") && checkRun)
                 {
                     saveId = "Dê";
                     create_NewIdQuestion("EA");
@@ -248,6 +248,7 @@ namespace Quiz_System_2018
         private void griListQue_CellClick(object sender, DataGridViewCellEventArgs e)
         {
                 indexRow = e.RowIndex;
+            bntClick.Enabled = false;
             if (indexRow < 0)
             {
                 MessageBox.Show("Không thể sửa nội dung này","Thông báo",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
@@ -280,7 +281,7 @@ namespace Quiz_System_2018
                 conn.Close();
                 checkRun = true;
             }
-                
+            
         }
 
         private void bntDel_Click(object sender, EventArgs e)
@@ -303,10 +304,12 @@ namespace Quiz_System_2018
 
         private void bntEdit_Click_1(object sender, EventArgs e)
         {
-                if (txbIdQues.Text == "")
-                {
-                    MessageBox.Show("Vui lòng chọn câu hỏi muốn chỉnh sửa","Thông báo",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
-                }
+            if (txbIdQues.Text == "")
+            {
+                MessageBox.Show("Vui lòng chọn câu hỏi muốn chỉnh sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
                 //Xóa dữ liệu cũ
                 conn.Open();
                 string del = "DELETE FROM DAPAN WHERE MaCauHoi='" + getIDQues + "' AND MaMon='" + txbIDCourse.Text + "'";
@@ -339,9 +342,9 @@ namespace Quiz_System_2018
                 adapter.SelectCommand.ExecuteNonQuery();
                 conn.Close();
                 load_grid();
-                if(Convert.ToInt16(cbNumOfAns.Text) != getNumAns)
+                if (Convert.ToInt16(cbNumOfAns.Text) != getNumAns)
                 {
-                    Answer reAns = new Answer(txbIdQues.Text, Convert.ToInt16(cbNumOfAns.Text),txbIDCourse.Text);
+                    Answer reAns = new Answer(txbIdQues.Text, Convert.ToInt16(cbNumOfAns.Text), txbIDCourse.Text);
                     this.Hide();
                     reAns.ShowDialog();
                     this.Show();
@@ -366,7 +369,9 @@ namespace Quiz_System_2018
                         bntClick.Enabled = true;
                         cbNumOfAns.Text = "";
                     }
-                }    
+                }
+            }
+                
         }
 
         private void tạoĐềThiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -405,10 +410,17 @@ namespace Quiz_System_2018
             loadSubject();
             MessageBox.Show("Xóa mã đề " + e.ClickedItem.ToString().Trim() + " thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
         }
-
-        private void Menu_Subject_Click(object sender, EventArgs e)
+        private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
+            Change_PassWord newPass = new Change_PassWord(checkUser);
+            newPass.ShowDialog();
+            this.Show();
+        }
 
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

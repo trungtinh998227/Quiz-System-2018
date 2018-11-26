@@ -45,9 +45,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.label1 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.đổiMậtKhâuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -56,7 +59,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(728, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(728, 26);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(108, 107);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -68,7 +71,7 @@
             this.lbName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbName.Location = new System.Drawing.Point(710, 135);
+            this.lbName.Location = new System.Drawing.Point(710, 149);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(142, 14);
             this.lbName.TabIndex = 2;
@@ -81,7 +84,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(24, 12);
+            this.pictureBox2.Location = new System.Drawing.Point(24, 26);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(154, 82);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -95,7 +98,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Sitka Subheading", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(202, 13);
+            this.label2.Location = new System.Drawing.Point(202, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(427, 35);
             this.label2.TabIndex = 4;
@@ -109,7 +112,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Sitka Heading", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(245, 48);
+            this.label3.Location = new System.Drawing.Point(245, 62);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(320, 32);
             this.label3.TabIndex = 5;
@@ -122,7 +125,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(181, 165);
+            this.label4.Location = new System.Drawing.Point(181, 179);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 15);
             this.label4.TabIndex = 6;
@@ -135,7 +138,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(179, 208);
+            this.label5.Location = new System.Drawing.Point(179, 222);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(114, 15);
             this.label5.TabIndex = 7;
@@ -146,7 +149,7 @@
             this.txbIDcourse.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbIDcourse.Location = new System.Drawing.Point(305, 158);
+            this.txbIDcourse.Location = new System.Drawing.Point(305, 172);
             this.txbIDcourse.Multiline = true;
             this.txbIDcourse.Name = "txbIDcourse";
             this.txbIDcourse.Size = new System.Drawing.Size(385, 29);
@@ -157,7 +160,7 @@
             this.txbPhong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbPhong.Location = new System.Drawing.Point(305, 204);
+            this.txbPhong.Location = new System.Drawing.Point(305, 218);
             this.txbPhong.Multiline = true;
             this.txbPhong.Name = "txbPhong";
             this.txbPhong.Size = new System.Drawing.Size(385, 28);
@@ -169,7 +172,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bntStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntStart.Location = new System.Drawing.Point(433, 280);
+            this.bntStart.Location = new System.Drawing.Point(433, 294);
             this.bntStart.Name = "bntStart";
             this.bntStart.Size = new System.Drawing.Size(81, 30);
             this.bntStart.TabIndex = 3;
@@ -225,7 +228,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(856, 136);
+            this.label8.Location = new System.Drawing.Point(856, 150);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 13);
             this.label8.TabIndex = 12;
@@ -239,11 +242,30 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(313, 244);
+            this.label1.Location = new System.Drawing.Point(313, 258);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(362, 13);
             this.label1.TabIndex = 13;
             this.label1.Text = "(Lưu ý: Phòng thi bao gồm 5 ký tự ví dụ như A0506, B0510,...)";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.đổiMậtKhâuToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(807, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(126, 412);
+            this.menuStrip1.TabIndex = 14;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // đổiMậtKhâuToolStripMenuItem
+            // 
+            this.đổiMậtKhâuToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.đổiMậtKhâuToolStripMenuItem.Name = "đổiMậtKhâuToolStripMenuItem";
+            this.đổiMậtKhâuToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.đổiMậtKhâuToolStripMenuItem.Text = "Đổi mật khẩu";
+            this.đổiMậtKhâuToolStripMenuItem.Click += new System.EventHandler(this.đổiMậtKhâuToolStripMenuItem_Click);
             // 
             // Quiz_config_student
             // 
@@ -263,7 +285,9 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Quiz_config_student";
@@ -273,6 +297,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,5 +321,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem đổiMậtKhâuToolStripMenuItem;
     }
 }

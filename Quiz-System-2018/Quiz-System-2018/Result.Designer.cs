@@ -44,12 +44,14 @@
             // 
             // bntOk
             // 
-            this.bntOk.Location = new System.Drawing.Point(135, 415);
+            this.bntOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntOk.Location = new System.Drawing.Point(132, 415);
             this.bntOk.Name = "bntOk";
             this.bntOk.Size = new System.Drawing.Size(75, 23);
             this.bntOk.TabIndex = 1;
             this.bntOk.Text = "Nộp bài";
             this.bntOk.UseVisualStyleBackColor = true;
+            this.bntOk.Click += new System.EventHandler(this.bntOk_Click);
             // 
             // Result
             // 
@@ -59,7 +61,9 @@
             this.Controls.Add(this.bntOk);
             this.Controls.Add(this.pnResult);
             this.Name = "Result";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nộp bài";
+            this.Load += new System.EventHandler(this.Result_Load);
             this.ResumeLayout(false);
 
         }

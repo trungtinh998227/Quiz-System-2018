@@ -46,7 +46,13 @@ namespace Quiz_System_2018
             if (h == 0 && m == 0 && s == 0)
             {
                 timer.Stop();
-                MessageBox.Show("Đã hết thời gian làm bài", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult res = MessageBox.Show("Đã hết thời gian làm bài", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (res == DialogResult.OK)
+                {
+                    Result rs = new Result();
+                    rs.Show();
+                    this.Close();
+                }
             }
             lbHour.Text = Convert.ToString(h);
             lbMinute.Text = Convert.ToString(m);
@@ -189,8 +195,15 @@ namespace Quiz_System_2018
             bntRevious.Enabled = true;
             if (status == limit-1)
             {
-                MessageBox.Show("Bạn có muốn chuyển đến trang nộp bài","Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Information);
-
+                DialogResult res = MessageBox.Show("Bạn có muốn chuyển đến trang nộp bài. Lưu ý: Bạn không thể quay lại làm bài.","Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Information);
+                if (res == DialogResult.Yes)
+                {
+                    load(status-1);
+                    this.Hide();
+                    Result rs = new Result();
+                    rs.Show();
+                    
+                }
             }
             else
             {

@@ -60,5 +60,13 @@ namespace Quiz_System_2018
             }
             conn.Close();
         }
+
+        private void đổiMậtKhâuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Change_PassWord newPass = new Change_PassWord(userName);
+            newPass.ShowDialog();
+            this.Show();
+        }
     }
 }

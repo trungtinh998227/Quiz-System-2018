@@ -22,3 +22,4 @@ C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Re
 C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\dje-NE\Quiz-System-2018.resources.dll
 C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz-System-2018.csprojAssemblyReference.cache
 C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz_System_2018.Result.resources
+C:\Users\trung\Desktop\Quiz-System-2018\Quiz-System-2018\Quiz-System-2018\obj\Release\Quiz_System_2018.Change_PassWord.resources

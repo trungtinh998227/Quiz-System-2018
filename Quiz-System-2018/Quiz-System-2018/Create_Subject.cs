@@ -47,8 +47,6 @@ namespace Quiz_System_2018
                 //Biến lưu lại thời gian làm bài
                 Time = Convert.ToInt16(txbTime.Text);
             }
-            try
-            {
                 for(int i=0;i< numOfSubject; i++)
                 {
                     string idsub = Create_Id_Subject();
@@ -59,18 +57,11 @@ namespace Quiz_System_2018
                     //Thêm thời gian thi vào database dùng timer đếm khi sinh viên làm bài
                     conn.Open();
                     string addTime = "INSERT INTO THOIGIANTHI VALUES ('" + idsub + "','"+Time+"')";
-                    MessageBox.Show("Lỗi thêm");
                     adapter = new SqlDataAdapter(addTime, conn);
                     adapter.SelectCommand.ExecuteNonQuery();
-                    MessageBox.Show("Lỗi thêm time");
                     conn.Close();
                 }
                 MessageBox.Show("Đã tạo thành công", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            }
-            catch
-            {
-                MessageBox.Show("Lỗi nữa rồi");
-            } 
         }
         //Tạo mã đề thi ngẫu nhiên
         private string Create_Id_Subject()
@@ -96,8 +87,6 @@ namespace Quiz_System_2018
         //Lấy ngẫu nhiên câu hỏi theo số lượng và độ khó
         private void Create_Random_Questions(string levelQues,string IDcourse,string IDsubject ,int num)
         {
-            try
-            {
                 conn.Open();
                 string getQues = "SELECT CauHoi,DapAn1,DapAn2,DapAn3,DapAn4,DapAnDung,CAUHOI.MaCauHoi FROM CAUHOI,DAPAN WHERE CAUHOI.MaCauHoi=DAPAN.MaCauHoi AND CAUHOI.MaMon=DAPAN.MaMon AND CAUHOI.MaCauHoi like '" + levelQues + "%" + "'AND CAUHOI.MaMon= '" + IDcourse + "'";
                 adapter = new SqlDataAdapter(getQues, conn);
@@ -115,13 +104,7 @@ namespace Quiz_System_2018
                     adapter = new SqlDataAdapter(str,conn);
                     adapter.SelectCommand.ExecuteNonQuery();
                     conn.Close();
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Không tạo được câu hỏi");
-            }
-           
+                }   
         }
 
 

@@ -281,5 +281,14 @@ namespace Quiz_System_2018
                 MessageBox.Show("Lỗi, vui lòng thử lại");
             }          
         }
+
+        private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Change_PassWord newPass = new Change_PassWord("Admin");
+            newPass.ShowDialog();
+            this.Show();
+            loadGrid();
+        }
     }
 }
